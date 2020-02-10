@@ -1,6 +1,6 @@
 import java.util.*
 
-val eps = "eps"
+val eps = "getEps"
 
 class FirstFollowBuilder(
         private val start: String,

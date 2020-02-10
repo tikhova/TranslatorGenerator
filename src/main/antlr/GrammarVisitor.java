@@ -1,4 +1,4 @@
-// Generated from /shared/YandexDisk/ITMO/year2019/parsers/TranslatorGenerator/src/main/antlr/Grammar.g4 by ANTLR 4.8
+// Generated from /shared/YandexDisk/ITMO/year2019/mt/TranslatorGenerator/src/main/antlr/Grammar.g4 by ANTLR 4.8
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -15,12 +15,6 @@ public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitGrammar_(GrammarParser.Grammar_Context ctx);
-	/**
-	 * Visit a parse tree produced by {@link GrammarParser#attributes}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAttributes(GrammarParser.AttributesContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link GrammarParser#rule_}.
 	 * @param ctx the parse tree
@@ -63,10 +57,4 @@ public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLexingRuleOptions(GrammarParser.LexingRuleOptionsContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link GrammarParser#skipRule}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSkipRule(GrammarParser.SkipRuleContext ctx);
 }

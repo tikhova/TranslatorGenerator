@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98f5c1ba-32f6-4da6-a4c5-7768f42c7b4a" name="Default Changelist" comment="" />
+    <list default="true" id="98f5c1ba-32f6-4da6-a4c5-7768f42c7b4a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/TranslatorGenerator.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr4_runtime_4_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_runtime_1_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_1_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_junit_1_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc (2).xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace (2).xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Lexer.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/logic/Logic.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TranslatorGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TranslatorGenerator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/Grammar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/Grammar.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/Grammar.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/Grammar.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/Grammar.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/Grammar.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarBaseVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/FirstFollowBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tmp/FirstFollowBuilder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/LexerGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LexerGenerator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,47 +59,57 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1XLmSE0mgeCGyyuteBoBDP4FwB1" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1XZL6zxYPdNsvvvhqHyQbfqrQpY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="$PROJECT_DIR$/src/main/antlr/Grammar.g4::/auto-gen" value="true" />
-    <property name="$PROJECT_DIR$/src/main/antlr/Grammar.g4::/gen-listener" value="false" />
-    <property name="$PROJECT_DIR$/src/main/antlr/Grammar.g4::/gen-visitor" value="true" />
-    <property name="$PROJECT_DIR$/src/main/antlr/Grammar.g4::/output-dir" value="$PROJECT_DIR$/src/main/antlr" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/antlr" />
     <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/tmp" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="TranslatorGenerator" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <item itemvalue="Kotlin.MainKt" />
       </list>
-    </option>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -72,13 +117,12 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="98f5c1ba-32f6-4da6-a4c5-7768f42c7b4a" name="Default Changelist" comment="" />
-      <created>1580833746908</created>
+      <created>1581248511227</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1580833746908</updated>
-      <workItem from="1580833769164" duration="5847000" />
-      <workItem from="1580979994982" duration="1104000" />
-      <workItem from="1580984557531" duration="26793000" />
+      <updated>1581248511227</updated>
+      <workItem from="1581248534338" duration="11292000" />
+      <workItem from="1581275980895" duration="13281000" />
     </task>
     <servers />
   </component>
@@ -86,21 +130,29 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="556" y="182" key="#Project_Structure" timestamp="1580837707454">
+    <state x="743" y="278" key="FileChooserDialogImpl" timestamp="1581265871754">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="556" y="182" key="#Project_Structure/0.0.1920.1044@0.0.1920.1044" timestamp="1580837707454" />
-    <state x="644" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580984101651">
+    <state x="743" y="278" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1581265871754" />
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1581331221417">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="644" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1580984101651" />
-    <state x="743" y="279" key="FileChooserDialogImpl" timestamp="1581019827506">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1581331221417" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1581331221417">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="743" y="279" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1581019827506" />
-    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1581018013758">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1581331221417" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1581331221416">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1581018013758" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1581331221416" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1581331221417">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1581331221417" />
+    <state x="100" y="100" width="1720" height="844" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581327132333">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="100" y="100" width="1720" height="844" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1581327132333" />
   </component>
 </project>

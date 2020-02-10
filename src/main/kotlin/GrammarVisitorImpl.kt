@@ -1,39 +1,42 @@
 import GrammarParser.*
-import org.antlr.v4.runtime.tree.TerminalNode
 import java.io.OutputStreamWriter
 import java.util.*
 
-class GrammarVisitorImpl(private val outputStreamWriter: OutputStreamWriter) : GrammarBaseVisitor<Void?>() {
+class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
     private val _lineSeparator = System.lineSeparator()
-    private val _singleIndentation = "    "
+
     var attributes = ""
-    val rules = hashMapOf<String, ArrayList<ArrayList<String>>>()
+    val rules = hashMapOf<String, ArrayList<ArrayList<Pair<String, String>>>>()
     val tokens = hashMapOf<String, String>()
     var nodes = setOf<String>()
-
-    val first = hashMapOf<String, HashSet<String>>()
-    val follow = hashMapOf<String, HashSet<String>>()
+    val skipString = StringBuilder()
 
     override fun visitGrammar_(ctx: Grammar_Context): Void? {
-        for (child in ctx.children) {
-            visit(child)
-        }
+        getAttributes(ctx)
 
-        // TODO: do first follow build
-
-        return null
+        return super.visitGrammar_(ctx)
     }
 
-    override fun visitAttributes(ctx: AttributesContext): Void? {
-        val strBuilder = StringBuilder()
-        ctx.Attribute().forEach { strBuilder.append("${it.text}$_lineSeparator") }
-        attributes = strBuilder.toString()
+    private fun getAttributes(ctx: Grammar_Context) {
+        if (ctx.Attributes() != null) {
+            val text = ctx.Attributes().text
+            attributes = text.substring(1, text.lastIndex).split(";").joinToString(";\n")
+        }
+    }
 
-        return null
+    override fun visitRule_(ctx: Rule_Context): Void? {
+        if (ctx.SkipRule() != null) {
+            skipString.append(Regex("[.*]").matchEntire(skipString.append(ctx.SkipRule().text))!!.value)
+
+            return null
+        }
+
+        return super.visitRule_(ctx)
     }
 
     override fun visitParsingRule(ctx: ParsingRuleContext): Void? {
         val name = ctx.PARSER_IDENTIFIER().toString()
+        println(name)
 
         nodes.plus(name)
         rules.putIfAbsent(name, arrayListOf())
@@ -42,32 +45,38 @@ class GrammarVisitorImpl(private val outputStreamWriter: OutputStreamWriter) : G
         return null
     }
 
-    private fun getParsingRuleOptions(ctx: ParsingRuleOptionsContext): ArrayList<ArrayList<String>> {
-        val result = arrayListOf(getParsingRule(ctx.parsingAtom()))
+    private fun getParsingRuleOptions(ctx: ParsingRuleOptionsContext): ArrayList<ArrayList<Pair<String, String>>> {
+        val result: ArrayList<ArrayList<Pair<String, String>>> = arrayListOf()
 
-        result.addAll(getParsingRuleOptions(ctx.parsingRuleOptions()))
+        ctx.parsingAtom().forEach{
+            result.add(getParsingRule(it))
+        }
+
+        if (ctx.parsingRuleOptions() != null) {
+            result.addAll(getParsingRuleOptions(ctx.parsingRuleOptions()))
+        }
 
         return result
     }
 
-    private fun getParsingRule(ctx: ParsingAtomContext): ArrayList<String> {
-        if (ctx.Identifier() != null) {
-            return arrayListOf(ctx.Identifier().getChild(0).text)
-        }
-
+    private fun getParsingRule(ctx: ParsingAtomContext): ArrayList<Pair<String, String>> {
         if (ctx.parsingAtom() != null) {
             return getParsingRule(ctx.parsingAtom())
         }
 
-        return arrayListOf()
+        var rule = ""
+        if (ctx.SemanticRules() != null) {
+            rule = ctx.SemanticRules().text
+        }
+
+        return arrayListOf(Pair(ctx.getChild(0).text, rule))
     }
 
     override fun visitLexingRule(ctx: LexingRuleContext): Void? {
         val name = ctx.LEXER_IDENTIFIER().text
         val value = getLexingRuleOptions(ctx.lexingRuleOptions())
-
         if (tokens[name] != null) {
-            tokens[name] = "${tokens[name]}|$value"
+            tokens[name] = tokens[name].plus("|$value")
         } else {
             tokens[name] = value
         }
@@ -94,12 +103,14 @@ class GrammarVisitorImpl(private val outputStreamWriter: OutputStreamWriter) : G
         if (ctx.LexerLiteral() != null) {
             val token = ctx.LexerLiteral().text
 
-            strBuilder.append("(${token.substring(1, token.length - 1)})")
+            strBuilder.append("(${token.substring(1, token.length - 1)})".replace("\\", "\\\\"))
         } else if (ctx.LEXER_IDENTIFIER() != null) {
             strBuilder.append(ctx.LEXER_IDENTIFIER().text)
         }
 
-        strBuilder.append(ctx.CountMark().text)
+        if (ctx.CountMark() != null) {
+            strBuilder.append(ctx.CountMark().text)
+        }
 
         return strBuilder.toString()
     }
