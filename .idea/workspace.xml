@@ -2,40 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98f5c1ba-32f6-4da6-a4c5-7768f42c7b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/TranslatorGenerator.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_antlr_antlr4_runtime_4_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_runtime_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_junit_1_0_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc (2).xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace (2).xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Lexer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/logic/Logic.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/tmp/Parser.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/logic/Parser.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TranslatorGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TranslatorGenerator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr/Grammar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/Grammar.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr/Grammar.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/Grammar.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr/Grammar.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/Grammar.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarBaseVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarBaseVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/Logic.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/Logic.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/LogicBaseListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/LogicBaseVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/LogicLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/LogicLexer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/LogicLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/LogicListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/LogicParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/logic/LogicVisitor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/FirstFollowBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/tmp/FirstFollowBuilder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Lexer.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/LexerGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LexerGenerator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/tmp/FirstFollowBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/FirstFollowBuilder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/logic/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Lexer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$Grammar_Context.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$Grammar_Context.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$LexingAtomContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$LexingAtomContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$LexingRuleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$LexingRuleContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$LexingRuleOptionsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$LexingRuleOptionsContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingAtomContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingAtomContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingRuleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingRuleContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingRuleOptionsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingRuleOptionsContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$Rule_Context.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$Rule_Context.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Lexer$Token.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Lexer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LexerGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LexerGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/TranslatorGenerator.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/TranslatorGenerator.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ParserGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ParserGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/TranslatorGenerator.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Lexer$Token.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Lexer.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +71,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XZL6zxYPdNsvvvhqHyQbfqrQpY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -89,6 +95,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/tmp" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin" />
     </key>
   </component>
   <component name="RunManager">
@@ -122,37 +129,52 @@
       <option name="presentableId" value="Default" />
       <updated>1581248511227</updated>
       <workItem from="1581248534338" duration="11292000" />
-      <workItem from="1581275980895" duration="13281000" />
+      <workItem from="1581275980895" duration="30452000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="706" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581409259050">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="706" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1581409259050" />
+    <state x="694" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581427964022">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="694" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1581427964022" />
     <state x="743" y="278" key="FileChooserDialogImpl" timestamp="1581265871754">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="743" y="278" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1581265871754" />
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1581331221417">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1581453873106">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1581331221417" />
-    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1581331221417">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1581453873106" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1581453873104">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1581331221417" />
-    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1581331221416">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1581453873104" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1581453873104">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1581331221416" />
-    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1581331221417">
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1581453873104" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1581453873105">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1581331221417" />
-    <state x="100" y="100" width="1720" height="844" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581327132333">
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1581453873105" />
+    <state x="100" y="100" width="1720" height="844" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581428000575">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="100" y="100" width="1720" height="844" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1581327132333" />
+    <state x="100" y="100" width="1720" height="844" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1581428000575" />
+    <state x="624" y="238" key="run.anything.popup" timestamp="1581427576548">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="624" y="238" key="run.anything.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1581427576548" />
   </component>
 </project>

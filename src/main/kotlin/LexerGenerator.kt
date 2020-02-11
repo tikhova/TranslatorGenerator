@@ -28,10 +28,9 @@ class LexerGenerator(private val visitor: GrammarVisitorImpl) {
         return sb.toString()
     }
 
-    fun generateLexer() = buildString {
-        append(
-"""
-package logic
+    fun generateLexer(path: String) = buildString {
+        append("""
+package $path
 
 import GrammarVisitorImpl
 import java.io.IOException
@@ -39,7 +38,7 @@ import java.io.Reader
 import java.text.ParseException
 import java.util.*
 
-class Lexer(private val inputReader: Reader, private val visitor: GrammarVisitorImpl) {
+class Lexer(private val inputReader: Reader, visitor: GrammarVisitorImpl) {
     private var curPosition = 0
     private var curCharacter: Int? = null
     private var curString = ""
@@ -81,7 +80,7 @@ class Lexer(private val inputReader: Reader, private val visitor: GrammarVisitor
         }
     }
 
-    private fun nextToken() {
+    fun nextToken() {
         nextChar()
 
         val options = getTokenFromString()
@@ -111,6 +110,10 @@ class Lexer(private val inputReader: Reader, private val visitor: GrammarVisitor
     fun curPos(): Int {
         return curPosition
     }
+    
+    fun curString(): String {
+        return curString
+    }
 
     fun parse(): ArrayList<Token> {
         val result = arrayListOf<Token>()
@@ -130,6 +133,6 @@ class Lexer(private val inputReader: Reader, private val visitor: GrammarVisitor
 
     fun createLexer(path: String) {
         File("src/test/$path").mkdir()
-        File("src/test/$path/Lexer.kt").writeText(generateLexer())
+        File("src/test/$path/Lexer.kt").writeText(generateLexer(path))
     }
 }

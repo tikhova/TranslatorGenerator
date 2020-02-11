@@ -27,6 +27,12 @@ fun main() {
     val visitor = GrammarVisitorImpl()
     val grammar = parser.grammar_()
     visitor.visit(grammar)
+    val ffBuilder = FirstFollowBuilder(visitor.rules, visitor.tokens.keys)
+    ffBuilder.buildFirst()
+    ffBuilder.buildFollow()
+    ffBuilder.buildMapToRule()
     val lexerGenerator = LexerGenerator(visitor)
+    val parserGenerator = ParserGenerator(visitor, ffBuilder)
     lexerGenerator.createLexer(dir)
+    parserGenerator.createParser(dir)
 }
