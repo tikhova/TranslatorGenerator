@@ -4,7 +4,7 @@ import java.util.*
 val eps = "getEps"
 
 class FirstFollowBuilder(
-        private val rules: HashMap<String, ArrayList<ArrayList<Pair<String, String>>>>,
+        private val rules: HashMap<String, ArrayList<ArrayList<Triple<String, String, String>>>>,
         private val terminals: Set<String>
 ) {
     val first = HashMap<String, HashSet<String>>()

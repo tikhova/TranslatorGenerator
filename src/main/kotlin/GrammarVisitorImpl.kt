@@ -6,7 +6,7 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
     private val _lineSeparator = System.lineSeparator()
 
     var attributes = ""
-    val rules = hashMapOf<String, ArrayList<ArrayList<Pair<String, String>>>>()
+    val rules = hashMapOf<String, ArrayList<ArrayList<Triple<String, String, String>>>>()
     val tokens = hashMapOf<String, String>()
     var nodes = setOf<String>()
     val skipString = StringBuilder()
@@ -18,9 +18,9 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
     }
 
     private fun getAttributes(ctx: Grammar_Context) {
-        if (ctx.Attributes() != null) {
-            val text = ctx.Attributes().text
-            attributes = text.substring(1, text.lastIndex).split(";").joinToString(";\n")
+        if (ctx.SemanticRules() != null) {
+            val text = ctx.SemanticRules().text
+            attributes = text.substring(1, text.lastIndex).split(";").joinToString("\n")
         }
     }
 
@@ -45,8 +45,8 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
         return null
     }
 
-    private fun getParsingRuleOptions(ctx: ParsingRuleOptionsContext): ArrayList<ArrayList<Pair<String, String>>> {
-        val result: ArrayList<ArrayList<Pair<String, String>>> = arrayListOf()
+    private fun getParsingRuleOptions(ctx: ParsingRuleOptionsContext): ArrayList<ArrayList<Triple<String, String, String>>> {
+        val result: ArrayList<ArrayList<Triple<String, String, String>>> = arrayListOf()
 
         ctx.parsingAtom().forEach{
             result.add(getParsingRule(it))
@@ -59,17 +59,24 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
         return result
     }
 
-    private fun getParsingRule(ctx: ParsingAtomContext): ArrayList<Pair<String, String>> {
+    private fun getParsingRule(ctx: ParsingAtomContext): ArrayList<Triple<String, String, String>> {
         if (ctx.parsingAtom() != null) {
             return getParsingRule(ctx.parsingAtom())
+        }
+
+        var inherited = ""
+        if (ctx.InheritedRules() != null) {
+            inherited = ctx.InheritedRules().text
+            inherited = inherited.substring(1, inherited.lastIndex).split(";").joinToString("\n")
         }
 
         var rule = ""
         if (ctx.SemanticRules() != null) {
             rule = ctx.SemanticRules().text
+            rule = rule.substring(1, rule.lastIndex).split(";").joinToString("\n")
         }
 
-        return arrayListOf(Pair(ctx.getChild(0).text, rule))
+        return arrayListOf(Triple(ctx.getChild(0).text, rule, inherited))
     }
 
     override fun visitLexingRule(ctx: LexingRuleContext): Void? {

@@ -1,16 +1,14 @@
 grammar Grammar ;
 
-grammar_:  GRAMMAR LEXER_IDENTIFIER SEMICOLON Attributes? rule_* ;
-
-Attributes: LBRACE (LITERAL+ SEMICOLON)* RBRACE ;
+grammar_:  GRAMMAR LEXER_IDENTIFIER SEMICOLON SemanticRules? rule_* ;
 
 rule_: parsingRule | lexingRule | SkipRule;
 
 parsingRule: PARSER_IDENTIFIER COLON parsingRuleOptions SEMICOLON ;
 
 parsingAtom:
-    PARSER_IDENTIFIER SemanticRules? |
-    LEXER_IDENTIFIER SemanticRules? |
+    PARSER_IDENTIFIER InheritedRules? SemanticRules? |
+    LEXER_IDENTIFIER InheritedRules? SemanticRules? |
     LPARENTHESIS parsingAtom RPARENTHESIS ;
 
 parsingRuleOptions: parsingAtom+ | parsingAtom+ OR parsingRuleOptions ;
@@ -37,6 +35,16 @@ LBRACKET: '[' ;
 RBRACKET: ']' ;
 LBRACE: '{' ;
 RBRACE: '}' ;
+APOSTROPHE: '\'' ;
+SEMICOLON: ';' ;
+COLON: ':' ;
+OR: '|' ;
+QUESTION: '?' ;
+STAR: '*' ;
+PLUS: '+' ;
+ARROW: '->' ;
+
+WS : [ \t\r\n\u000C]+ -> skip ;
 
 PARSER_IDENTIFIER: LowercaseLetter String ;
 
@@ -58,18 +66,9 @@ Letter: LowercaseLetter | UppercaseLetter | '_';
 fragment
 String: Letter* ;
 
-APOSTROPHE: '\'' ;
-SEMICOLON: ';' ;
-COLON: ':' ;
-OR: '|' ;
-QUESTION: '?' ;
-STAR: '*' ;
-PLUS: '+' ;
-ARROW: '->' ;
+InheritedRules: LBRACKET .*? LBRACKET ;
 
-WS : [ \t\r\n\u000C]+ -> skip ;
-
-SemanticRules: LBRACE LITERAL+? RBRACE ;
+SemanticRules: LBRACE .*? RBRACE ;
 
 LexerLiteral: APOSTROPHE LITERAL+? APOSTROPHE ;
 
