@@ -76,7 +76,7 @@ ${singleIndentation.repeat(4)}lexer.nextToken()
                         sb.append("""
 ${singleIndentation.repeat(4)}val node$nodeCounter = ${rulePart.first}{${rulePart.third}}
 ${singleIndentation.repeat(4)}children.add(node$nodeCounter)
-${rulePart.second}
+${singleIndentation.repeat(4)}${rulePart.second}
 """)
                         nodeCounter++
                     }

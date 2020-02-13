@@ -35,6 +35,18 @@ LBRACKET: '[' ;
 RBRACKET: ']' ;
 LBRACE: '{' ;
 RBRACE: '}' ;
+APOSTROPHE: '\'' ;
+SEMICOLON: ';' ;
+COLON: ':' ;
+OR: '|' ;
+QUESTION: '?' ;
+STAR: '*' ;
+PLUS: '+' ;
+ARROW: '->' ;
+LSIGN: '<' ;
+GSIGN: '>' ;
+
+WS : [ \t\r\n\u000C]+ -> skip ;
 
 PARSER_IDENTIFIER: LowercaseLetter String ;
 
@@ -56,18 +68,7 @@ Letter: LowercaseLetter | UppercaseLetter | '_';
 fragment
 String: Letter* ;
 
-APOSTROPHE: '\'' ;
-SEMICOLON: ';' ;
-COLON: ':' ;
-OR: '|' ;
-QUESTION: '?' ;
-STAR: '*' ;
-PLUS: '+' ;
-ARROW: '->' ;
-
-WS : [ \t\r\n\u000C]+ -> skip ;
-
-InheritedRules: LBRACKET .*? LBRACKET ;
+InheritedRules: LSIGN .*? GSIGN ;
 
 SemanticRules: LBRACE .*? RBRACE ;
 

@@ -43,6 +43,8 @@ QUESTION: '?' ;
 STAR: '*' ;
 PLUS: '+' ;
 ARROW: '->' ;
+LSIGN: '<' ;
+GSIGN: '>' ;
 
 WS : [ \t\r\n\u000C]+ -> skip ;
 
@@ -66,7 +68,7 @@ Letter: LowercaseLetter | UppercaseLetter | '_';
 fragment
 String: Letter* ;
 
-InheritedRules: LBRACKET .*? LBRACKET ;
+InheritedRules: LSIGN .*? GSIGN ;
 
 SemanticRules: LBRACE .*? RBRACE ;
 

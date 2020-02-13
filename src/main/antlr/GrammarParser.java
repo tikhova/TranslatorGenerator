@@ -17,10 +17,10 @@ public class GrammarParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		SkipRule=1, GRAMMAR=2, FRAGMENT=3, SKIP_=4, LPARENTHESIS=5, RPARENTHESIS=6, 
-		LBRACKET=7, RBRACKET=8, LBRACE=9, RBRACE=10, PARSER_IDENTIFIER=11, LEXER_IDENTIFIER=12, 
-		Identifier=13, CountMark=14, APOSTROPHE=15, SEMICOLON=16, COLON=17, OR=18, 
-		QUESTION=19, STAR=20, PLUS=21, ARROW=22, WS=23, InheritedRules=24, SemanticRules=25, 
-		LexerLiteral=26;
+		LBRACKET=7, RBRACKET=8, LBRACE=9, RBRACE=10, APOSTROPHE=11, SEMICOLON=12, 
+		COLON=13, OR=14, QUESTION=15, STAR=16, PLUS=17, ARROW=18, LSIGN=19, GSIGN=20, 
+		WS=21, PARSER_IDENTIFIER=22, LEXER_IDENTIFIER=23, Identifier=24, CountMark=25, 
+		InheritedRules=26, SemanticRules=27, LexerLiteral=28;
 	public static final int
 		RULE_grammar_ = 0, RULE_rule_ = 1, RULE_parsingRule = 2, RULE_parsingAtom = 3, 
 		RULE_parsingRuleOptions = 4, RULE_lexingRule = 5, RULE_lexingAtom = 6, 
@@ -36,18 +36,18 @@ public class GrammarParser extends Parser {
 	private static String[] makeLiteralNames() {
 		return new String[] {
 			null, null, "'grammar'", "'fragment'", "'skip'", "'('", "')'", "'['", 
-			"']'", "'{'", "'}'", null, null, null, null, "'''", "';'", "':'", "'|'", 
-			"'?'", "'*'", "'+'", "'->'"
+			"']'", "'{'", "'}'", "'''", "';'", "':'", "'|'", "'?'", "'*'", "'+'", 
+			"'->'", "'<'", "'>'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "SkipRule", "GRAMMAR", "FRAGMENT", "SKIP_", "LPARENTHESIS", "RPARENTHESIS", 
-			"LBRACKET", "RBRACKET", "LBRACE", "RBRACE", "PARSER_IDENTIFIER", "LEXER_IDENTIFIER", 
-			"Identifier", "CountMark", "APOSTROPHE", "SEMICOLON", "COLON", "OR", 
-			"QUESTION", "STAR", "PLUS", "ARROW", "WS", "InheritedRules", "SemanticRules", 
-			"LexerLiteral"
+			"LBRACKET", "RBRACKET", "LBRACE", "RBRACE", "APOSTROPHE", "SEMICOLON", 
+			"COLON", "OR", "QUESTION", "STAR", "PLUS", "ARROW", "LSIGN", "GSIGN", 
+			"WS", "PARSER_IDENTIFIER", "LEXER_IDENTIFIER", "Identifier", "CountMark", 
+			"InheritedRules", "SemanticRules", "LexerLiteral"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -548,9 +548,9 @@ public class GrammarParser extends Parser {
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case RPARENTHESIS:
-			case CountMark:
 			case SEMICOLON:
 			case OR:
+			case CountMark:
 			case LexerLiteral:
 				enterOuterAlt(_localctx, 1);
 				{
@@ -677,7 +677,7 @@ public class GrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\34h\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\36h\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\2\5\2"+
 		"\27\n\2\3\2\7\2\32\n\2\f\2\16\2\35\13\2\3\3\3\3\3\3\5\3\"\n\3\3\4\3\4"+
 		"\3\4\3\4\3\4\3\5\3\5\5\5+\n\5\3\5\5\5.\n\5\3\5\3\5\5\5\62\n\5\3\5\5\5"+
@@ -686,23 +686,23 @@ public class GrammarParser extends Parser {
 		"U\n\b\3\b\3\b\5\bY\n\b\3\b\3\b\3\b\3\b\5\b_\n\b\3\t\3\t\3\t\3\t\3\t\5"+
 		"\tf\n\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\2\2r\2\22\3\2\2\2\4!\3\2\2\2\6#"+
 		"\3\2\2\2\b:\3\2\2\2\nI\3\2\2\2\fK\3\2\2\2\16^\3\2\2\2\20e\3\2\2\2\22\23"+
-		"\7\4\2\2\23\24\7\16\2\2\24\26\7\22\2\2\25\27\7\33\2\2\26\25\3\2\2\2\26"+
+		"\7\4\2\2\23\24\7\31\2\2\24\26\7\16\2\2\25\27\7\35\2\2\26\25\3\2\2\2\26"+
 		"\27\3\2\2\2\27\33\3\2\2\2\30\32\5\4\3\2\31\30\3\2\2\2\32\35\3\2\2\2\33"+
 		"\31\3\2\2\2\33\34\3\2\2\2\34\3\3\2\2\2\35\33\3\2\2\2\36\"\5\6\4\2\37\""+
 		"\5\f\7\2 \"\7\3\2\2!\36\3\2\2\2!\37\3\2\2\2! \3\2\2\2\"\5\3\2\2\2#$\7"+
-		"\r\2\2$%\7\23\2\2%&\5\n\6\2&\'\7\22\2\2\'\7\3\2\2\2(*\7\r\2\2)+\7\32\2"+
-		"\2*)\3\2\2\2*+\3\2\2\2+-\3\2\2\2,.\7\33\2\2-,\3\2\2\2-.\3\2\2\2.;\3\2"+
-		"\2\2/\61\7\16\2\2\60\62\7\32\2\2\61\60\3\2\2\2\61\62\3\2\2\2\62\64\3\2"+
-		"\2\2\63\65\7\33\2\2\64\63\3\2\2\2\64\65\3\2\2\2\65;\3\2\2\2\66\67\7\7"+
-		"\2\2\678\5\b\5\289\7\b\2\29;\3\2\2\2:(\3\2\2\2:/\3\2\2\2:\66\3\2\2\2;"+
-		"\t\3\2\2\2<>\5\b\5\2=<\3\2\2\2>?\3\2\2\2?=\3\2\2\2?@\3\2\2\2@J\3\2\2\2"+
-		"AC\5\b\5\2BA\3\2\2\2CD\3\2\2\2DB\3\2\2\2DE\3\2\2\2EF\3\2\2\2FG\7\24\2"+
-		"\2GH\5\n\6\2HJ\3\2\2\2I=\3\2\2\2IB\3\2\2\2J\13\3\2\2\2KL\7\16\2\2LM\7"+
-		"\23\2\2MN\5\20\t\2NO\7\22\2\2O\r\3\2\2\2PR\7\34\2\2QP\3\2\2\2QR\3\2\2"+
-		"\2RT\3\2\2\2SU\7\20\2\2TS\3\2\2\2TU\3\2\2\2U_\3\2\2\2VX\7\16\2\2WY\7\20"+
-		"\2\2XW\3\2\2\2XY\3\2\2\2Y_\3\2\2\2Z[\7\7\2\2[\\\5\16\b\2\\]\7\b\2\2]_"+
-		"\3\2\2\2^Q\3\2\2\2^V\3\2\2\2^Z\3\2\2\2_\17\3\2\2\2`f\5\16\b\2ab\5\16\b"+
-		"\2bc\7\24\2\2cd\5\20\t\2df\3\2\2\2e`\3\2\2\2ea\3\2\2\2f\21\3\2\2\2\22"+
+		"\30\2\2$%\7\17\2\2%&\5\n\6\2&\'\7\16\2\2\'\7\3\2\2\2(*\7\30\2\2)+\7\34"+
+		"\2\2*)\3\2\2\2*+\3\2\2\2+-\3\2\2\2,.\7\35\2\2-,\3\2\2\2-.\3\2\2\2.;\3"+
+		"\2\2\2/\61\7\31\2\2\60\62\7\34\2\2\61\60\3\2\2\2\61\62\3\2\2\2\62\64\3"+
+		"\2\2\2\63\65\7\35\2\2\64\63\3\2\2\2\64\65\3\2\2\2\65;\3\2\2\2\66\67\7"+
+		"\7\2\2\678\5\b\5\289\7\b\2\29;\3\2\2\2:(\3\2\2\2:/\3\2\2\2:\66\3\2\2\2"+
+		";\t\3\2\2\2<>\5\b\5\2=<\3\2\2\2>?\3\2\2\2?=\3\2\2\2?@\3\2\2\2@J\3\2\2"+
+		"\2AC\5\b\5\2BA\3\2\2\2CD\3\2\2\2DB\3\2\2\2DE\3\2\2\2EF\3\2\2\2FG\7\20"+
+		"\2\2GH\5\n\6\2HJ\3\2\2\2I=\3\2\2\2IB\3\2\2\2J\13\3\2\2\2KL\7\31\2\2LM"+
+		"\7\17\2\2MN\5\20\t\2NO\7\16\2\2O\r\3\2\2\2PR\7\36\2\2QP\3\2\2\2QR\3\2"+
+		"\2\2RT\3\2\2\2SU\7\33\2\2TS\3\2\2\2TU\3\2\2\2U_\3\2\2\2VX\7\31\2\2WY\7"+
+		"\33\2\2XW\3\2\2\2XY\3\2\2\2Y_\3\2\2\2Z[\7\7\2\2[\\\5\16\b\2\\]\7\b\2\2"+
+		"]_\3\2\2\2^Q\3\2\2\2^V\3\2\2\2^Z\3\2\2\2_\17\3\2\2\2`f\5\16\b\2ab\5\16"+
+		"\b\2bc\7\20\2\2cd\5\20\t\2df\3\2\2\2e`\3\2\2\2ea\3\2\2\2f\21\3\2\2\2\22"+
 		"\26\33!*-\61\64:?DIQTX^e";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());

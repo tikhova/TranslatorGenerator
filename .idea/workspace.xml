@@ -10,13 +10,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.tokens" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/FirstFollowBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/FirstFollowBuilder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/logic/Logic.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Logic.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/logic/Node.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Node.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/logic/Parser.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FirstFollowBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FirstFollowBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/logic/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Parser.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Grammar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Grammar.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Grammar.interp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Grammar.interp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Grammar.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Grammar.tokens" afterDir="false" />
@@ -30,10 +26,17 @@
       <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingAtomContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingAtomContext.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingRuleContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingRuleContext.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingRuleOptionsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$ParsingRuleOptionsContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser$Rule_Context.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser$Rule_Context.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GrammarParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GrammarVisitorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarVisitorImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ParserGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ParserGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +127,7 @@
       <updated>1581248511227</updated>
       <workItem from="1581248534338" duration="11292000" />
       <workItem from="1581275980895" duration="30452000" />
-      <workItem from="1581520861510" duration="10997000" />
+      <workItem from="1581520861510" duration="12098000" />
     </task>
     <servers />
   </component>
@@ -147,22 +150,22 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="743" y="278" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1581523364517" />
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1581536827689">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1581597403223">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1581536827689" />
-    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1581536827688">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1581597403223" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1581597403220">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1581536827688" />
-    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1581536827687">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1581597403220" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1581597403219">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1581536827687" />
-    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1581536827688">
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1581597403219" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1581597403221">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1581536827688" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1581597403221" />
     <state x="100" y="100" width="1720" height="844" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581529078332">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
