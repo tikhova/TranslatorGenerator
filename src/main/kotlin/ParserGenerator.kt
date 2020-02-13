@@ -1,7 +1,7 @@
 import java.io.File
 
 class ParserGenerator(private val visitor: GrammarVisitorImpl,
-                      private val ffBuilder: FirstFollowBuilder) {
+                      private val firstBuilder: FirstBuilder) {
     private val singleIndentation = "    "
 
     private fun generateNode(path: String): String {
@@ -52,8 +52,8 @@ class Parser(private val lexer: Lexer) {
     
         lexer.nextToken()
         when (lexer.curToken()) {""")
-            for (fst in ffBuilder.first[name]!!) {
-                val ruleNumber = ffBuilder.mapToRule[name]!![fst]!!
+            for (fst in firstBuilder.first[name]!!) {
+                val ruleNumber = firstBuilder.mapToRule[name]!![fst]!!
                 // TODO: add case for eps
                 sb.append("\n${singleIndentation.repeat(3)}Lexer.Token.$fst -> {\n")
                 var nodeCounter = 0
@@ -63,15 +63,16 @@ class Parser(private val lexer: Lexer) {
 ${singleIndentation.repeat(4)}if (lexer.curToken() != Lexer.Token.${rulePart.first}) {
 ${singleIndentation.repeat(5)}unexpectedLiteral()
 ${singleIndentation.repeat(4)}}
-${singleIndentation.repeat(4)}val node = Node(lexer.curString())""")
+${singleIndentation.repeat(4)}val node$nodeCounter = Node(lexer.curString())""")
                         if (rulePart.third.isNotEmpty()) {
-                            sb.append("${singleIndentation.repeat(5)}node.apply(${rulePart.third})\n")
+                            sb.append("${singleIndentation.repeat(5)}node$nodeCounter.apply(${rulePart.third})\n")
                         }
                         sb.append("""
-${singleIndentation.repeat(4)}children.add(node)
+${singleIndentation.repeat(4)}children.add(node$nodeCounter)
 ${singleIndentation.repeat(4)}${rulePart.second}
 ${singleIndentation.repeat(4)}lexer.nextToken()
 """)
+                        nodeCounter++
                     } else {
                         sb.append("""
 ${singleIndentation.repeat(4)}val node$nodeCounter = ${rulePart.first}{${rulePart.third}}
@@ -80,12 +81,11 @@ ${singleIndentation.repeat(4)}${rulePart.second}
 """)
                         nodeCounter++
                     }
-
-                    sb.append("""
+                }
+                sb.append("""
 ${singleIndentation.repeat(4)}return res
 ${singleIndentation.repeat(3)}}
 """)
-                }
             }
 
             sb.append("""

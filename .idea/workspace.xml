@@ -2,26 +2,78 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98f5c1ba-32f6-4da6-a4c5-7768f42c7b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/logic/Main.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/LexerGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LexerGenerator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/Grammar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/Grammar.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/antlr/GrammarLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/FirstFollowBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/FirstBuilder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/logic/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Lexer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/logic/Logic.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Logic.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/logic/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/logic/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Parser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LexerGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LexerGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FirstFollowBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FirstFollowBuilderKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Grammar.g4" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Grammar.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarLexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarLexer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarVisitorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarVisitorImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/TranslatorGenerator.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/TranslatorGenerator.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainKt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ParserGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ParserGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/TranslatorGenerator.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/META-INF/TranslatorGenerator.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Lexer$Token.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Lexer$Token.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Lexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Lexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/MainKt$main$res$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/MainKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$WhenMappings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_continuation$node0$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_continuation$node0$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_continuation$node0$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_continuation$node0$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_continuation$node0$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_continuation$node0$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_continuation$node0$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$expression$node0$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$value$node0$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$value$node0$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$value$node0$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$value$node0$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$value$node0$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$value$node0$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node0$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node0$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node0$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node0$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node0$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node0$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node0$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +133,7 @@
       <recent name="$PROJECT_DIR$/src/main/kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.logic.MainKt">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="MainKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="TranslatorGenerator" />
       <option name="VM_PARAMETERS" />
@@ -110,8 +162,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.logic.MainKt" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Kotlin.logic.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -127,7 +179,7 @@
       <updated>1581248511227</updated>
       <workItem from="1581248534338" duration="11292000" />
       <workItem from="1581275980895" duration="30452000" />
-      <workItem from="1581520861510" duration="17474000" />
+      <workItem from="1581520861510" duration="24715000" />
     </task>
     <servers />
   </component>
@@ -142,30 +194,30 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="706" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1581409259050" />
-    <state x="694" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581427964022">
+    <state x="694" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581622011395">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="694" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1581427964022" />
+    <state x="694" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1581622011395" />
     <state x="743" y="278" key="FileChooserDialogImpl" timestamp="1581523364517">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="743" y="278" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1581523364517" />
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1581613778611">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1581625301491">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1581613778611" />
-    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1581613778611">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1581625301491" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1581625301489">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1581613778611" />
-    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1581613778610">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1581625301489" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1581625301488">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1581613778610" />
-    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1581613778611">
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1581625301488" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1581625301489">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1581613778611" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1581625301489" />
     <state x="100" y="100" width="1720" height="844" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1581529078332">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>

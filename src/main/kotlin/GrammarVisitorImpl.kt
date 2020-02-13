@@ -46,11 +46,9 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
     }
 
     private fun getParsingRuleOptions(ctx: ParsingRuleOptionsContext): ArrayList<ArrayList<Triple<String, String, String>>> {
-        val result: ArrayList<ArrayList<Triple<String, String, String>>> = arrayListOf()
+        val result: ArrayList<ArrayList<Triple<String, String, String>>> =
+                arrayListOf(ctx.parsingAtom().map{ getParsingRule(it) } as ArrayList<Triple<String, String, String>>)
 
-        ctx.parsingAtom().forEach{
-            result.add(getParsingRule(it))
-        }
 
         if (ctx.parsingRuleOptions() != null) {
             result.addAll(getParsingRuleOptions(ctx.parsingRuleOptions()))
@@ -59,7 +57,7 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
         return result
     }
 
-    private fun getParsingRule(ctx: ParsingAtomContext): ArrayList<Triple<String, String, String>> {
+    private fun getParsingRule(ctx: ParsingAtomContext): Triple<String, String, String> {
         if (ctx.parsingAtom() != null) {
             return getParsingRule(ctx.parsingAtom())
         }
@@ -76,7 +74,7 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
             rule = rule.substring(1, rule.lastIndex).split(";").joinToString("\n")
         }
 
-        return arrayListOf(Triple(ctx.getChild(0).text, rule, inherited))
+        return Triple(ctx.getChild(0).text, rule, inherited)
     }
 
     override fun visitLexingRule(ctx: LexingRuleContext): Void? {

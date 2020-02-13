@@ -13,13 +13,14 @@ class Lexer(private val inputReader: Reader) {
     private var curToken: Token? = null
     private val skipSet = "".toSet()
     private val tokenMap: Map<Token, Regex> = mapOf(
-        Token.NOT to Regex("(\\!)"),
-        Token.OR to Regex("(||)"),
+        Token.NOT to Regex("(not)"),
+        Token.OR to Regex("(or)"),
         Token.RBRACE to Regex("(\\))"),
-        Token.AND to Regex("(&&)"),
+        Token.VARIABLE to Regex("(a-zA-Z)"),
+        Token.AND to Regex("(and)"),
         Token.EPS to Regex(""),
-        Token.XOR to Regex("(\\^)"),
-        Token.ATOM to Regex("(true)|(false)"),
+        Token.XOR to Regex("(xor)"),
+        Token.ATOM to Regex("(true)|(false)|VARIABLE"),
         Token.LBRACE to Regex("(\\()")
     )
     
@@ -27,6 +28,7 @@ class Lexer(private val inputReader: Reader) {
         NOT,
         OR,
         RBRACE,
+        VARIABLE,
         AND,
         EPS,
         XOR,
@@ -44,7 +46,7 @@ class Lexer(private val inputReader: Reader) {
             }
 
             if (!isEOF()) {
-                curString = curString.plus(curCharacter!!.toChar())
+                curString = curString.plus(curCharacter)
             }
         } catch (err: IOException) {
             throw ParseException(err.message, curPosition)
@@ -81,7 +83,7 @@ class Lexer(private val inputReader: Reader) {
             curToken = null
 
             if (curString.isNotEmpty()) {
-                throw ParseException("Illegal character ${curString} at $lastPosition", lastPosition)
+                throw ParseException("Illegal character ${curCharacter!!.toChar()}", lastPosition)
             }
         }
 

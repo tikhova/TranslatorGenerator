@@ -72,7 +72,7 @@ InheritedRules: LSIGN .*? GSIGN ;
 
 SemanticRules: LBRACE .*? RBRACE ;
 
-LexerLiteral: APOSTROPHE LITERAL+? APOSTROPHE ;
+LexerLiteral: APOSTROPHE .*? APOSTROPHE ;
 
 fragment
 LITERAL : . ;

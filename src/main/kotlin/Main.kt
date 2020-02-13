@@ -1,5 +1,6 @@
 import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream
+import java.util.*
 
 fun main() {
     val option = readLine().toString()
@@ -27,12 +28,35 @@ fun main() {
     val visitor = GrammarVisitorImpl()
     val grammar = parser.grammar_()
     visitor.visit(grammar)
-    val ffBuilder = FirstFollowBuilder(visitor.rules, visitor.tokens.keys)
+    val ffBuilder = FirstBuilder(visitor.rules, visitor.tokens.keys)
     ffBuilder.buildFirst()
-    ffBuilder.buildFollow()
     ffBuilder.buildMapToRule()
     val lexerGenerator = LexerGenerator(visitor)
     val parserGenerator = ParserGenerator(visitor, ffBuilder)
     lexerGenerator.createLexer(dir)
     parserGenerator.createParser(dir)
+
+    printRules(visitor.rules)
+}
+
+fun printFirst(first: HashMap<String, HashSet<String>>) {
+    first.forEach{(name, map) ->
+        print("$name: ")
+        map.forEach{ print("$it ") }
+        println()
+    }
+
+}
+
+fun printRules(rules: HashMap<String, ArrayList<ArrayList<Triple<String, String, String>>>>) {
+    rules.forEach {(name, list) ->
+        print("$name: ")
+        list.forEach {
+            it.forEach {(name, _, _) -> print("$name ")
+            }
+            print("| ")
+        }
+        println()
+    }
+
 }

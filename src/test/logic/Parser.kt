@@ -23,53 +23,12 @@ class Parser(private val lexer: Lexer) {
         when (lexer.curToken()) {
             Lexer.Token.NOT -> {
 
-                val node0 = x_or_continuation{it.value = res.children[0].value}
+                val node0 = x_value{}
                 children.add(node0)
-                res.value = res.children[1].value
+                
 
-                return res
-            }
-
-            Lexer.Token.OR -> {
-
-                val node0 = x_or_continuation{it.value = res.children[0].value}
-                children.add(node0)
-                res.value = res.children[1].value
-
-                return res
-            }
-
-            Lexer.Token.RBRACE -> {
-
-                val node0 = x_or_continuation{it.value = res.children[0].value}
-                children.add(node0)
-                res.value = res.children[1].value
-
-                return res
-            }
-
-            Lexer.Token.AND -> {
-
-                val node0 = x_or_continuation{it.value = res.children[0].value}
-                children.add(node0)
-                res.value = res.children[1].value
-
-                return res
-            }
-
-            Lexer.Token.EPS -> {
-
-                val node0 = x_or_continuation{it.value = res.children[0].value}
-                children.add(node0)
-                res.value = res.children[1].value
-
-                return res
-            }
-
-            Lexer.Token.XOR -> {
-
-                val node0 = x_or_continuation{it.value = res.children[0].value}
-                children.add(node0)
+                val node1 = x_or_continuation{it.value = res.children[0].value}
+                children.add(node1)
                 res.value = res.children[1].value
 
                 return res
@@ -77,8 +36,12 @@ class Parser(private val lexer: Lexer) {
 
             Lexer.Token.LBRACE -> {
 
-                val node0 = x_or_continuation{it.value = res.children[0].value}
+                val node0 = x_value{}
                 children.add(node0)
+                
+
+                val node1 = x_or_continuation{it.value = res.children[0].value}
+                children.add(node1)
                 res.value = res.children[1].value
 
                 return res
@@ -86,8 +49,12 @@ class Parser(private val lexer: Lexer) {
 
             Lexer.Token.ATOM -> {
 
-                val node0 = x_or_continuation{it.value = res.children[0].value}
+                val node0 = x_value{}
                 children.add(node0)
+                
+
+                val node1 = x_or_continuation{it.value = res.children[0].value}
+                children.add(node1)
                 res.value = res.children[1].value
 
                 return res
@@ -107,69 +74,27 @@ class Parser(private val lexer: Lexer) {
     
         lexer.nextToken()
         when (lexer.curToken()) {
-            Lexer.Token.NOT -> {
+            Lexer.Token.LBRACE -> {
 
-                val node0 = expression{}
+                if (lexer.curToken() != Lexer.Token.LBRACE) {
+                    unexpectedLiteral()
+                }
+                val node0 = Node(lexer.curString())
                 children.add(node0)
                 
+                lexer.nextToken()
 
-                return res
-            }
-
-            Lexer.Token.OR -> {
-
-                val node0 = expression{}
-                children.add(node0)
+                val node1 = expression{}
+                children.add(node1)
                 
-
-                return res
-            }
-
-            Lexer.Token.RBRACE -> {
 
                 if (lexer.curToken() != Lexer.Token.RBRACE) {
                     unexpectedLiteral()
                 }
-                val node = Node(lexer.curString())
-                children.add(node)
+                val node2 = Node(lexer.curString())
+                children.add(node2)
                  res.value = res.children[1].value 
                 lexer.nextToken()
-
-                return res
-            }
-
-            Lexer.Token.AND -> {
-
-                val node0 = expression{}
-                children.add(node0)
-                
-
-                return res
-            }
-
-            Lexer.Token.EPS -> {
-
-                val node0 = expression{}
-                children.add(node0)
-                
-
-                return res
-            }
-
-            Lexer.Token.XOR -> {
-
-                val node0 = expression{}
-                children.add(node0)
-                
-
-                return res
-            }
-
-            Lexer.Token.LBRACE -> {
-
-                val node0 = expression{}
-                children.add(node0)
-                
 
                 return res
             }
@@ -179,8 +104,8 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.ATOM) {
                     unexpectedLiteral()
                 }
-                val node = Node(lexer.curString())
-                children.add(node)
+                val node0 = Node(lexer.curString())
+                children.add(node0)
                  res.value = res.children[0].name.toBoolean() 
                 lexer.nextToken()
 
@@ -201,38 +126,19 @@ class Parser(private val lexer: Lexer) {
     
         lexer.nextToken()
         when (lexer.curToken()) {
-            Lexer.Token.NOT -> {
-
-                val node0 = expression{}
-                children.add(node0)
-                res.value = res.value xor children[1].value
-
-                return res
-            }
-
             Lexer.Token.OR -> {
 
-                val node0 = expression{}
+                if (lexer.curToken() != Lexer.Token.OR) {
+                    unexpectedLiteral()
+                }
+                val node0 = Node(lexer.curString())
                 children.add(node0)
-                res.value = res.value xor children[1].value
+                
+                lexer.nextToken()
 
-                return res
-            }
-
-            Lexer.Token.RBRACE -> {
-
-                val node0 = expression{}
-                children.add(node0)
-                res.value = res.value xor children[1].value
-
-                return res
-            }
-
-            Lexer.Token.AND -> {
-
-                val node0 = expression{}
-                children.add(node0)
-                res.value = res.value xor children[1].value
+                val node1 = expression{}
+                children.add(node1)
+                res.value = res.value || children[1].value
 
                 return res
             }
@@ -242,8 +148,8 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.EPS) {
                     unexpectedLiteral()
                 }
-                val node = Node(lexer.curString())
-                children.add(node)
+                val node0 = Node(lexer.curString())
+                children.add(node0)
                 
                 lexer.nextToken()
 
@@ -252,26 +158,16 @@ class Parser(private val lexer: Lexer) {
 
             Lexer.Token.XOR -> {
 
-                val node0 = expression{}
+                if (lexer.curToken() != Lexer.Token.XOR) {
+                    unexpectedLiteral()
+                }
+                val node0 = Node(lexer.curString())
                 children.add(node0)
-                res.value = res.value xor children[1].value
+                
+                lexer.nextToken()
 
-                return res
-            }
-
-            Lexer.Token.LBRACE -> {
-
-                val node0 = expression{}
-                children.add(node0)
-                res.value = res.value xor children[1].value
-
-                return res
-            }
-
-            Lexer.Token.ATOM -> {
-
-                val node0 = expression{}
-                children.add(node0)
+                val node1 = expression{}
+                children.add(node1)
                 res.value = res.value xor children[1].value
 
                 return res
@@ -293,53 +189,12 @@ class Parser(private val lexer: Lexer) {
         when (lexer.curToken()) {
             Lexer.Token.NOT -> {
 
-                val node0 = and_continuation{it.value = res.children[0].value}
+                val node0 = and_value{}
                 children.add(node0)
-                res.value = res.children[1].value
+                
 
-                return res
-            }
-
-            Lexer.Token.OR -> {
-
-                val node0 = and_continuation{it.value = res.children[0].value}
-                children.add(node0)
-                res.value = res.children[1].value
-
-                return res
-            }
-
-            Lexer.Token.RBRACE -> {
-
-                val node0 = and_continuation{it.value = res.children[0].value}
-                children.add(node0)
-                res.value = res.children[1].value
-
-                return res
-            }
-
-            Lexer.Token.AND -> {
-
-                val node0 = and_continuation{it.value = res.children[0].value}
-                children.add(node0)
-                res.value = res.children[1].value
-
-                return res
-            }
-
-            Lexer.Token.EPS -> {
-
-                val node0 = and_continuation{it.value = res.children[0].value}
-                children.add(node0)
-                res.value = res.children[1].value
-
-                return res
-            }
-
-            Lexer.Token.XOR -> {
-
-                val node0 = and_continuation{it.value = res.children[0].value}
-                children.add(node0)
+                val node1 = and_continuation{it.value = res.children[0].value}
+                children.add(node1)
                 res.value = res.children[1].value
 
                 return res
@@ -347,8 +202,12 @@ class Parser(private val lexer: Lexer) {
 
             Lexer.Token.LBRACE -> {
 
-                val node0 = and_continuation{it.value = res.children[0].value}
+                val node0 = and_value{}
                 children.add(node0)
+                
+
+                val node1 = and_continuation{it.value = res.children[0].value}
+                children.add(node1)
                 res.value = res.children[1].value
 
                 return res
@@ -356,8 +215,12 @@ class Parser(private val lexer: Lexer) {
 
             Lexer.Token.ATOM -> {
 
-                val node0 = and_continuation{it.value = res.children[0].value}
+                val node0 = and_value{}
                 children.add(node0)
+                
+
+                val node1 = and_continuation{it.value = res.children[0].value}
+                children.add(node1)
                 res.value = res.children[1].value
 
                 return res
@@ -379,54 +242,17 @@ class Parser(private val lexer: Lexer) {
         when (lexer.curToken()) {
             Lexer.Token.NOT -> {
 
-                val node0 = value{}
+                if (lexer.curToken() != Lexer.Token.NOT) {
+                    unexpectedLiteral()
+                }
+                val node0 = Node(lexer.curString())
                 children.add(node0)
-                res.value = res.children[0].value
+                
+                lexer.nextToken()
 
-                return res
-            }
-
-            Lexer.Token.OR -> {
-
-                val node0 = value{}
-                children.add(node0)
-                res.value = res.children[0].value
-
-                return res
-            }
-
-            Lexer.Token.RBRACE -> {
-
-                val node0 = value{}
-                children.add(node0)
-                res.value = res.children[0].value
-
-                return res
-            }
-
-            Lexer.Token.AND -> {
-
-                val node0 = value{}
-                children.add(node0)
-                res.value = res.children[0].value
-
-                return res
-            }
-
-            Lexer.Token.EPS -> {
-
-                val node0 = value{}
-                children.add(node0)
-                res.value = res.children[0].value
-
-                return res
-            }
-
-            Lexer.Token.XOR -> {
-
-                val node0 = value{}
-                children.add(node0)
-                res.value = res.children[0].value
+                val node1 = value{}
+                children.add(node1)
+                res.value = !res.children[0].value
 
                 return res
             }
@@ -463,37 +289,18 @@ class Parser(private val lexer: Lexer) {
     
         lexer.nextToken()
         when (lexer.curToken()) {
-            Lexer.Token.NOT -> {
-
-                val node0 = x_value{}
-                children.add(node0)
-                res.value = res.value && children[1].value
-
-                return res
-            }
-
-            Lexer.Token.OR -> {
-
-                val node0 = x_value{}
-                children.add(node0)
-                res.value = res.value && children[1].value
-
-                return res
-            }
-
-            Lexer.Token.RBRACE -> {
-
-                val node0 = x_value{}
-                children.add(node0)
-                res.value = res.value && children[1].value
-
-                return res
-            }
-
             Lexer.Token.AND -> {
 
-                val node0 = x_value{}
+                if (lexer.curToken() != Lexer.Token.AND) {
+                    unexpectedLiteral()
+                }
+                val node0 = Node(lexer.curString())
                 children.add(node0)
+                
+                lexer.nextToken()
+
+                val node1 = x_value{}
+                children.add(node1)
                 res.value = res.value && children[1].value
 
                 return res
@@ -504,37 +311,10 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.EPS) {
                     unexpectedLiteral()
                 }
-                val node = Node(lexer.curString())
-                children.add(node)
+                val node0 = Node(lexer.curString())
+                children.add(node0)
                 
                 lexer.nextToken()
-
-                return res
-            }
-
-            Lexer.Token.XOR -> {
-
-                val node0 = x_value{}
-                children.add(node0)
-                res.value = res.value && children[1].value
-
-                return res
-            }
-
-            Lexer.Token.LBRACE -> {
-
-                val node0 = x_value{}
-                children.add(node0)
-                res.value = res.value && children[1].value
-
-                return res
-            }
-
-            Lexer.Token.ATOM -> {
-
-                val node0 = x_value{}
-                children.add(node0)
-                res.value = res.value && children[1].value
 
                 return res
             }
