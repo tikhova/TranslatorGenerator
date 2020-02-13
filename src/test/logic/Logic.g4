@@ -10,13 +10,15 @@ LBRACE : '\(' ;
 
 RBRACE : '\)' ;
 
-OR : '||' ;
+OR : 'or' ;
 
-XOR : '\^' ;
+XOR : 'xor' ;
 
-AND : '&&' ;
+AND : 'and' ;
 
-NOT : '\!' ;
+NOT : 'not' ;
+
+VARIABLE : [a-zA-Z] ;
 
 expression : x_value x_or_continuation <it.value = res.children[0].value> {res.value = res.children[1].value};
 

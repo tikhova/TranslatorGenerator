@@ -14,7 +14,7 @@ class Parser(private val lexer: Lexer) {
     }
     
     
-    private fun expression(func: (Node) -> Unit): Node {
+    fun expression(func: (Node) -> Unit): Node {
         val children = arrayListOf<Node>()
         val res = Node("expression", children)
         func(res)
@@ -100,7 +100,7 @@ class Parser(private val lexer: Lexer) {
     }
 
 
-    private fun value(func: (Node) -> Unit): Node {
+    fun value(func: (Node) -> Unit): Node {
         val children = arrayListOf<Node>()
         val res = Node("value", children)
         func(res)
@@ -194,7 +194,7 @@ class Parser(private val lexer: Lexer) {
     }
 
 
-    private fun x_or_continuation(func: (Node) -> Unit): Node {
+    fun x_or_continuation(func: (Node) -> Unit): Node {
         val children = arrayListOf<Node>()
         val res = Node("x_or_continuation", children)
         func(res)
@@ -284,7 +284,7 @@ class Parser(private val lexer: Lexer) {
     }
 
 
-    private fun x_value(func: (Node) -> Unit): Node {
+    fun x_value(func: (Node) -> Unit): Node {
         val children = arrayListOf<Node>()
         val res = Node("x_value", children)
         func(res)
@@ -370,7 +370,7 @@ class Parser(private val lexer: Lexer) {
     }
 
 
-    private fun and_value(func: (Node) -> Unit): Node {
+    fun and_value(func: (Node) -> Unit): Node {
         val children = arrayListOf<Node>()
         val res = Node("and_value", children)
         func(res)
@@ -456,7 +456,7 @@ class Parser(private val lexer: Lexer) {
     }
 
 
-    private fun and_continuation(func: (Node) -> Unit): Node {
+    fun and_continuation(func: (Node) -> Unit): Node {
         val children = arrayListOf<Node>()
         val res = Node("and_continuation", children)
         func(res)

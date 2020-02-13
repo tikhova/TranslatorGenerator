@@ -38,12 +38,12 @@ import java.io.Reader
 import java.text.ParseException
 import java.util.*
 
-class Lexer(private val inputReader: Reader, visitor: GrammarVisitorImpl) {
+class Lexer(private val inputReader: Reader) {
     private var curPosition = 0
     private var curCharacter: Int? = null
     private var curString = ""
     private var curToken: Token? = null
-    private val skipSet = visitor.skipString.toSet()
+    private val skipSet = "${visitor.skipString.toString()}".toSet()
     ${generateTokenMap()}
     
     ${generateToken()}
@@ -83,24 +83,23 @@ class Lexer(private val inputReader: Reader, visitor: GrammarVisitorImpl) {
     fun nextToken() {
         nextChar()
 
-        val options = getTokenFromString()
+        var options = getTokenFromString()
+        val lastPosition = curPosition
 
-        if (isEOF()) {
-            if (options.size != 1) {
-                curToken = null
+        while (!isEOF() && options.size != 1) {
+            nextChar()
+            options = getTokenFromString()
+        }
 
-                if (curString.isNotEmpty()) {
-                    throw ParseException("Illegal character ${'$'}{curCharacter!!.toChar()}", curPosition)
-                }
+        if (isEOF() && options.size != 1) {
+            curToken = null
+
+            if (curString.isNotEmpty()) {
+                throw ParseException("Illegal character ${'$'}{curCharacter!!.toChar()}", lastPosition)
             }
-            return
         }
 
-        when (options.size) {
-            0 -> throw ParseException("Illegal character ${'$'}{curCharacter!!.toChar()}", curPosition)
-            1 -> return
-            else -> nextToken()
-        }
+        curString = ""
     }
 
     fun curToken(): Token? {

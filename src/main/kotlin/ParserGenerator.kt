@@ -45,7 +45,7 @@ class Parser(private val lexer: Lexer) {
         val sb = StringBuilder()
         for (name in visitor.rules.keys) {
             sb.append("""
-    private fun ${name}(func: (Node) -> Unit): Node {
+    fun ${name}(func: (Node) -> Unit): Node {
         val children = arrayListOf<Node>()
         val res = Node("$name", children)
         func(res)

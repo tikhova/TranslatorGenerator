@@ -6,12 +6,12 @@ import java.io.Reader
 import java.text.ParseException
 import java.util.*
 
-class Lexer(private val inputReader: Reader, visitor: GrammarVisitorImpl) {
+class Lexer(private val inputReader: Reader) {
     private var curPosition = 0
     private var curCharacter: Int? = null
     private var curString = ""
     private var curToken: Token? = null
-    private val skipSet = visitor.skipString.toSet()
+    private val skipSet = "".toSet()
     private val tokenMap: Map<Token, Regex> = mapOf(
         Token.NOT to Regex("(\\!)"),
         Token.OR to Regex("(||)"),
@@ -44,7 +44,7 @@ class Lexer(private val inputReader: Reader, visitor: GrammarVisitorImpl) {
             }
 
             if (!isEOF()) {
-                curString = curString.plus(curCharacter)
+                curString = curString.plus(curCharacter!!.toChar())
             }
         } catch (err: IOException) {
             throw ParseException(err.message, curPosition)
@@ -69,24 +69,23 @@ class Lexer(private val inputReader: Reader, visitor: GrammarVisitorImpl) {
     fun nextToken() {
         nextChar()
 
-        val options = getTokenFromString()
+        var options = getTokenFromString()
+        val lastPosition = curPosition
 
-        if (isEOF()) {
-            if (options.size != 1) {
-                curToken = null
+        while (!isEOF() && options.size != 1) {
+            nextChar()
+            options = getTokenFromString()
+        }
 
-                if (curString.isNotEmpty()) {
-                    throw ParseException("Illegal character ${curCharacter!!.toChar()}", curPosition)
-                }
+        if (isEOF() && options.size != 1) {
+            curToken = null
+
+            if (curString.isNotEmpty()) {
+                throw ParseException("Illegal character ${curString} at $lastPosition", lastPosition)
             }
-            return
         }
 
-        when (options.size) {
-            0 -> throw ParseException("Illegal character ${curCharacter!!.toChar()}", curPosition)
-            1 -> return
-            else -> nextToken()
-        }
+        curString = ""
     }
 
     fun curToken(): Token? {
