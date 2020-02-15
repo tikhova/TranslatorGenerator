@@ -5,7 +5,6 @@
       <list>
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/main/antlr/Grammar.g4" />
-          <option name="autoGen" value="true" />
           <option name="outputDir" value="$PROJECT_DIR$/src/main/antlr" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />

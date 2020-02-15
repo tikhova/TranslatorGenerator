@@ -22,6 +22,12 @@ public interface GrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRule_(GrammarParser.Rule_Context ctx);
 	/**
+	 * Visit a parse tree produced by {@link GrammarParser#skipRule}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSkipRule(GrammarParser.SkipRuleContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link GrammarParser#parsingRule}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

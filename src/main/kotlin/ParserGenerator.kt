@@ -1,7 +1,7 @@
 import java.io.File
 
 class ParserGenerator(private val visitor: GrammarVisitorImpl,
-                      private val firstBuilder: FirstBuilder) {
+                      private val firstFollowBuilder: FirstFollowBuilder) {
     private val singleIndentation = "    "
 
     private fun generateNode(path: String): String {
@@ -25,6 +25,10 @@ package $path
 import java.text.ParseException
 
 class Parser(private val lexer: Lexer) {
+    init {
+        lexer.nextToken()
+    }
+    
     private fun unexpectedLiteral(): Nothing = throw ParseException(
         "Unexpected literal ${'$'}{lexer.curString()}", lexer.curPos()
     )
@@ -50,13 +54,12 @@ class Parser(private val lexer: Lexer) {
         val res = Node("$name", children)
         func(res)
     
-        lexer.nextToken()
         when (lexer.curToken()) {""")
-            for (fst in firstBuilder.first[name]!!) {
-                val ruleNumber = firstBuilder.mapToRule[name]!![fst]!!
-                // TODO: add case for eps
+            for (fst in firstFollowBuilder.first[name]!!.filter{ it != "EPS"} ) {
                 sb.append("\n${singleIndentation.repeat(3)}Lexer.Token.$fst -> {\n")
+                val ruleNumber = firstFollowBuilder.mapToRule[name]!![fst]!!
                 var nodeCounter = 0
+
                 for (rulePart in visitor.rules[name]!![ruleNumber]) {
                     if (rulePart.first in visitor.tokens.keys) {
                         sb.append("""
@@ -87,10 +90,13 @@ ${singleIndentation.repeat(4)}return res
 ${singleIndentation.repeat(3)}}
 """)
             }
-
+            sb.append("${singleIndentation.repeat(3)}else -> {\n")
+            if (firstFollowBuilder.first[name]!!.contains("EPS")) {
+                sb.append("${singleIndentation.repeat(4)}return res\n")
+            } else {
+                sb.append("unexpectedLiteral()\n")
+            }
             sb.append("""
-${singleIndentation.repeat(3)}else -> {
-${singleIndentation.repeat(5)}unexpectedLiteral()
 ${singleIndentation.repeat(3)}}
 ${singleIndentation.repeat(2)}}
 $singleIndentation}

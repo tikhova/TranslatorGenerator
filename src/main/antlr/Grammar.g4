@@ -2,7 +2,9 @@ grammar Grammar ;
 
 grammar_:  GRAMMAR LEXER_IDENTIFIER SEMICOLON SemanticRules? rule_* ;
 
-rule_: parsingRule | lexingRule | SkipRule;
+rule_: skipRule | parsingRule | lexingRule ;
+
+skipRule: SKIP_ ARROW LITERAL SEMICOLON ;
 
 parsingRule: PARSER_IDENTIFIER COLON parsingRuleOptions SEMICOLON ;
 
@@ -21,8 +23,6 @@ lexingAtom:
    LPARENTHESIS lexingAtom RPARENTHESIS ;
 
 lexingRuleOptions: lexingAtom | lexingAtom OR lexingRuleOptions ;
-
-SkipRule: SKIP_ LEXER_IDENTIFIER COLON LBRACKET LITERAL+ RBRACKET SEMICOLON ;
 
 // Lexer
 
@@ -74,5 +74,4 @@ SemanticRules: LBRACE .*? RBRACE ;
 
 LexerLiteral: APOSTROPHE .*? APOSTROPHE ;
 
-fragment
-LITERAL : . ;
+LITERAL: LBRACKET .*? RBRACKET ;

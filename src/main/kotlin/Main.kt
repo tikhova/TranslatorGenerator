@@ -16,10 +16,6 @@ fun main() {
             dir = "logic"
             name = "Logic.g4"
         }
-        "3" -> {
-            dir = "kotlinFormat"
-            name = "KotlinFormat.g4"
-        }
     }
 
     val cs = CharStreams.fromFileName("src/test/$dir/$name")
@@ -28,7 +24,7 @@ fun main() {
     val visitor = GrammarVisitorImpl()
     val grammar = parser.grammar_()
     visitor.visit(grammar)
-    val ffBuilder = FirstBuilder(visitor.rules, visitor.tokens.keys)
+    val ffBuilder = FirstFollowBuilder(visitor.rules, visitor.tokens.keys)
     ffBuilder.buildFirst()
     ffBuilder.buildMapToRule()
     val lexerGenerator = LexerGenerator(visitor)
@@ -36,7 +32,6 @@ fun main() {
     lexerGenerator.createLexer(dir)
     parserGenerator.createParser(dir)
 
-    printRules(visitor.rules)
 }
 
 fun printFirst(first: HashMap<String, HashSet<String>>) {

@@ -24,14 +24,11 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
         }
     }
 
-    override fun visitRule_(ctx: Rule_Context): Void? {
-        if (ctx.SkipRule() != null) {
-            skipString.append(Regex("[.*]").matchEntire(skipString.append(ctx.SkipRule().text))!!.value)
+    override fun visitSkipRule(ctx: SkipRuleContext): Void? {
+        val symbols = ctx.LITERAL().text
+        skipString.append(symbols.substring(1, symbols.lastIndex))
 
-            return null
-        }
-
-        return super.visitRule_(ctx)
+        return null
     }
 
     override fun visitParsingRule(ctx: ParsingRuleContext): Void? {
@@ -78,6 +75,7 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
     }
 
     override fun visitLexingRule(ctx: LexingRuleContext): Void? {
+        println("lexing rule")
         val name = ctx.LEXER_IDENTIFIER().text
         val value = getLexingRuleOptions(ctx.lexingRuleOptions())
         if (tokens[name] != null) {

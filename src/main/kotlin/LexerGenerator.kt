@@ -55,10 +55,11 @@ class Lexer(private val inputReader: Reader) {
 
             if (isBlank(curCharacter)) {
                 nextChar()
+                return
             }
 
             if (!isEOF()) {
-                curString = curString.plus(curCharacter)
+                curString = curString.plus(curCharacter!!.toChar())
             }
         } catch (err: IOException) {
             throw ParseException(err.message, curPosition)
@@ -75,12 +76,17 @@ class Lexer(private val inputReader: Reader) {
 
     private fun getTokenFromString(): Map<Token, Regex> {
         return tokenMap.filter { (name, regex) ->
-            curToken = name
-            curString.matches(regex)
+            if (curString.matches(regex)) {
+                curToken = name
+                true
+            } else {
+                false
+            }
         }
     }
 
     fun nextToken() {
+        curString = ""
         nextChar()
 
         var options = getTokenFromString()
@@ -95,11 +101,9 @@ class Lexer(private val inputReader: Reader) {
             curToken = null
 
             if (curString.isNotEmpty()) {
-                throw ParseException("Illegal character ${'$'}{curCharacter!!.toChar()}", lastPosition)
+                throw ParseException("Illegal character ${'$'}{curString}", lastPosition)
             }
         }
-
-        curString = ""
     }
 
     fun curToken(): Token? {

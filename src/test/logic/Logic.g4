@@ -4,7 +4,7 @@ grammar Logic ;
 var value = false
 }
 
-ATOM : 'true' | 'false' | VARIABLE;
+ATOM : 'true' | 'false' | 'a-zA-Z';
 
 LBRACE : '\(' ;
 
@@ -18,9 +18,7 @@ AND : 'and' ;
 
 NOT : 'not' ;
 
-VARIABLE : 'a-zA-Z' ;
-
-EPS: ;
+EPS : ;
 
 expression : x_value x_or_continuation <it.value = res.children[0].value> {res.value = res.children[1].value};
 
@@ -32,4 +30,6 @@ and_value : NOT value {res.value = !res.children[0].value} | value {res.value = 
 
 and_continuation : AND x_value {res.value = res.value && children[1].value} | EPS ;
 
-value : LBRACE expression RBRACE { res.value = res.children[1].value } | ATOM { res.value = res.children[0].name.toBoolean() } ;
+value : LBRACE expression RBRACE {res.value = res.children[1].value} | ATOM {res.value = res.children[0].name.toBoolean()} ;
+
+skip -> [ \t\n] ;
