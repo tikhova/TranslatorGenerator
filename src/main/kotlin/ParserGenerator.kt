@@ -30,7 +30,7 @@ class Parser(private val lexer: Lexer) {
     }
     
     private fun unexpectedLiteral(): Nothing = throw ParseException(
-        "Unexpected literal ${'$'}{lexer.curString()}", lexer.curPos()
+        "Unexpected literal ${'$'}{lexer.getString()}", lexer.curPos()
     )
     
     private fun ensureTokenIsCorrect(token: Lexer.Token, rule: String) {
@@ -55,7 +55,7 @@ class Parser(private val lexer: Lexer) {
         func(res)
     
         when (lexer.curToken()) {""")
-            for (fst in firstFollowBuilder.first[name]!!.filter{ it != "EPS"} ) {
+            for (fst in firstFollowBuilder.first[name]!!.filter { it != "EPS" }) {
                 sb.append("\n${singleIndentation.repeat(3)}Lexer.Token.$fst -> {\n")
                 val ruleNumber = firstFollowBuilder.mapToRule[name]!![fst]!!
                 var nodeCounter = 0
@@ -66,7 +66,7 @@ class Parser(private val lexer: Lexer) {
 ${singleIndentation.repeat(4)}if (lexer.curToken() != Lexer.Token.${rulePart.first}) {
 ${singleIndentation.repeat(5)}unexpectedLiteral()
 ${singleIndentation.repeat(4)}}
-${singleIndentation.repeat(4)}val node$nodeCounter = Node(lexer.curString())""")
+${singleIndentation.repeat(4)}val node$nodeCounter = Node(lexer.getString())""")
                         if (rulePart.third.isNotEmpty()) {
                             sb.append("${singleIndentation.repeat(5)}node$nodeCounter.apply(${rulePart.third})\n")
                         }
@@ -90,20 +90,27 @@ ${singleIndentation.repeat(4)}return res
 ${singleIndentation.repeat(3)}}
 """)
             }
-            sb.append("${singleIndentation.repeat(3)}else -> {\n")
-            if (firstFollowBuilder.first[name]!!.contains("EPS")) {
-                sb.append("${singleIndentation.repeat(4)}return res\n")
-            } else {
-                sb.append("unexpectedLiteral()\n")
+            println("FIRST: $name -> ${firstFollowBuilder.first[name]!!.toString()}")
+            println("FOLLOW: $name -> ${firstFollowBuilder.follow[name]!!.toString()}")
+            if (firstFollowBuilder.first[name]!!.contains("EPS") && firstFollowBuilder.follow[name]!!.isNotEmpty()) {
+                val follow = firstFollowBuilder.follow[name]!!
+                follow.add("EPS")
+                val followList = follow.joinToString(", ") { "Lexer.Token.$it" }
+                    sb.append("""
+${singleIndentation.repeat(3)}$followList -> {
+${singleIndentation.repeat(4)}return res
+${singleIndentation.repeat(3)}}
+""")
             }
             sb.append("""
+${singleIndentation.repeat(3)}else -> {
+${singleIndentation.repeat(4)}unexpectedLiteral()
 ${singleIndentation.repeat(3)}}
 ${singleIndentation.repeat(2)}}
 $singleIndentation}
 
 """)
         }
-
         return sb.toString()
     }
 

@@ -72,13 +72,11 @@ class Lexer(private val inputReader: Reader) {
     }
 
     fun nextToken() {
-        curString = ""
-        nextChar()
-
+        curString = curString().takeLast(1)
         var options = getTokenFromString()
         val lastPosition = curPosition
 
-        while (!isEOF() && options.size != 1) {
+        while (!isEOF() && options.isNotEmpty()) {
             nextChar()
             options = getTokenFromString()
         }

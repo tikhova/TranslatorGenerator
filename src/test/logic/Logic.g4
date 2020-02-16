@@ -32,4 +32,4 @@ and_continuation : AND x_value {res.value = res.value && children[1].value} | EP
 
 value : LBRACE expression RBRACE {res.value = res.children[1].value} | ATOM {res.value = res.children[0].name.toBoolean()} ;
 
-skip -> [ \t\n] ;
+skip -> [ \t\r\n] ;

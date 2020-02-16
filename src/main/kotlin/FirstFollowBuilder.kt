@@ -46,7 +46,6 @@ class FirstFollowBuilder(
                     for (i in 0 until rule.size) {
                         val currentValue = rule[i].first
 
-
                         if (!isTerminal(currentValue)) {
                             val oldSize = follow[currentValue]!!.size
 
@@ -61,9 +60,13 @@ class FirstFollowBuilder(
 
                                 follow[currentValue]!!.addAll(first[followingValue]!!.filter { it !== eps })
 
-                                if (j == value.size - 1 && first[followingValue]!!.contains(eps)) {
-                                    follow[currentValue]!!.addAll(follow[key]!!)
+                                if (!first[followingValue]!!.contains(eps)) {
+                                    break
                                 }
+                            }
+
+                            if (i == rule.size - 1) {
+                                follow[currentValue]!!.addAll(follow[key]!!)
                             }
 
                             changed = follow[currentValue]!!.size != oldSize || changed

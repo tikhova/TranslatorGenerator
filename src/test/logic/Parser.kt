@@ -62,9 +62,9 @@ class Parser(private val lexer: Lexer) {
 
                 return res
             }
-            else -> {
-unexpectedLiteral()
 
+            else -> {
+                unexpectedLiteral()
             }
         }
     }
@@ -113,9 +113,9 @@ unexpectedLiteral()
 
                 return res
             }
-            else -> {
-unexpectedLiteral()
 
+            else -> {
+                unexpectedLiteral()
             }
         }
     }
@@ -160,9 +160,13 @@ unexpectedLiteral()
 
                 return res
             }
-            else -> {
-                return res
 
+            Lexer.Token.RBRACE -> {
+                return res
+            }
+
+            else -> {
+                unexpectedLiteral()
             }
         }
     }
@@ -212,9 +216,9 @@ unexpectedLiteral()
 
                 return res
             }
-            else -> {
-unexpectedLiteral()
 
+            else -> {
+                unexpectedLiteral()
             }
         }
     }
@@ -260,9 +264,9 @@ unexpectedLiteral()
 
                 return res
             }
-            else -> {
-unexpectedLiteral()
 
+            else -> {
+                unexpectedLiteral()
             }
         }
     }
@@ -290,9 +294,13 @@ unexpectedLiteral()
 
                 return res
             }
-            else -> {
-                return res
 
+            Lexer.Token.OR, Lexer.Token.XOR -> {
+                return res
+            }
+
+            else -> {
+                unexpectedLiteral()
             }
         }
     }

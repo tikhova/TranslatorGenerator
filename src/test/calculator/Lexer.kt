@@ -1,36 +1,4 @@
-import java.io.File
-
-class LexerGenerator(private val visitor: GrammarVisitorImpl) {
-    private val singleIndentation = "    "
-    private fun generateToken(): String {
-        val sb = StringBuilder()
-        sb.append("enum class Token {\n")
-        val tokens = arrayListOf<String>()
-        for (token in visitor.tokens.keys) {
-            tokens.add("${singleIndentation.repeat(2)}$token")
-        }
-        sb.append(tokens.joinToString(",\n"))
-        sb.append("\n$singleIndentation}")
-
-        return sb.toString()
-    }
-
-    private fun generateTokenMap(): String {
-        val sb = StringBuilder()
-        sb.append("private val tokenMap: Map<Token, Regex> = mapOf(\n")
-        val elements = arrayListOf<String>()
-        for ((token, pattern) in visitor.tokens) {
-            elements.add("${singleIndentation.repeat(2)}Token.$token to Regex(\"$pattern\")")
-        }
-        sb.append(elements.joinToString(",\n"))
-        sb.append("\n$singleIndentation)")
-
-        return sb.toString()
-    }
-
-    fun generateLexer(path: String) = buildString {
-        append("""
-package $path
+package calculator
 
 import GrammarVisitorImpl
 import java.io.IOException
@@ -43,11 +11,29 @@ class Lexer(private val inputReader: Reader) {
     private var curCharacter: Int? = null
     private var curString = ""
     private var curToken: Token? = null
-    private val skipSet = "${visitor.skipString.toString()}".toSet()
+    private val skipSet = " \t\r\n".toSet()
     var realString = ""
-    ${generateTokenMap()}
+    private val tokenMap: Map<Token, Regex> = mapOf(
+        Token.NUMBER to Regex("(0)|([1-9][0-9]*)"),
+        Token.MULTIPLICATION to Regex("(\\*)"),
+        Token.RBRACE to Regex("(\\))"),
+        Token.EPS to Regex("()"),
+        Token.DIVISION to Regex("(/)"),
+        Token.MINUS to Regex("(-)"),
+        Token.PLUS to Regex("(\\+)"),
+        Token.LBRACE to Regex("(\\()")
+    )
     
-    ${generateToken()}
+    enum class Token {
+        NUMBER,
+        MULTIPLICATION,
+        RBRACE,
+        EPS,
+        DIVISION,
+        MINUS,
+        PLUS,
+        LBRACE
+    }
     
     private fun nextChar() {
         try {
@@ -104,7 +90,7 @@ class Lexer(private val inputReader: Reader) {
             curToken = null
 
             if (curString.isNotEmpty()) {
-                throw ParseException("Illegal character ${'$'}{curString}", lastPosition)
+                throw ParseException("Illegal character ${curString}", lastPosition)
             }
         }
         
@@ -137,14 +123,5 @@ class Lexer(private val inputReader: Reader) {
                 result.add(curToken!!)
             }
         }
-    }
-}
-""".trimIndent()
-        )
-    }
-
-    fun createLexer(path: String) {
-        File("src/test/$path").mkdir()
-        File("src/test/$path/Lexer.kt").writeText(generateLexer(path))
     }
 }

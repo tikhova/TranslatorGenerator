@@ -26,6 +26,7 @@ fun main() {
     visitor.visit(grammar)
     val ffBuilder = FirstFollowBuilder(visitor.rules, visitor.tokens.keys)
     ffBuilder.buildFirst()
+    ffBuilder.buildFollow()
     ffBuilder.buildMapToRule()
     val lexerGenerator = LexerGenerator(visitor)
     val parserGenerator = ParserGenerator(visitor, ffBuilder)
