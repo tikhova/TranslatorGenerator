@@ -36,47 +36,6 @@ class FirstFollowBuilder(
         }
     }
 
-    fun buildFollow() {
-        var changed = true
-
-        while (changed) {
-            changed = false
-            rules.forEach { (key, value) ->
-                for (rule in value) {
-                    for (i in 0 until rule.size) {
-                        val currentValue = rule[i].first
-
-                        if (!isTerminal(currentValue)) {
-                            val oldSize = follow[currentValue]!!.size
-
-                            var followingValue: String
-                            for (j in (i + 1) until rule.size) {
-                                followingValue = rule[j].first
-
-                                if (terminals.contains(followingValue)) {
-                                    follow[currentValue]!!.add(followingValue)
-                                    break
-                                }
-
-                                follow[currentValue]!!.addAll(first[followingValue]!!.filter { it !== eps })
-
-                                if (!first[followingValue]!!.contains(eps)) {
-                                    break
-                                }
-                            }
-
-                            if (i == rule.size - 1) {
-                                follow[currentValue]!!.addAll(follow[key]!!)
-                            }
-
-                            changed = follow[currentValue]!!.size != oldSize || changed
-                        }
-                    }
-                }
-            }
-        }
-    }
-
     fun buildFirst() {
         var changed = true
 
@@ -91,6 +50,52 @@ class FirstFollowBuilder(
                 }
 
                 changed = first[key]!!.size != oldSize || changed
+            }
+        }
+    }
+
+    fun buildFollow() {
+        var changed = true
+
+        while (changed) {
+            changed = false
+            rules.forEach { (key, value) ->
+                for (rule in value) {
+                    for (i in 0 until rule.size) {
+                        val currentValue = rule[i].first
+
+                        if (isTerminal(currentValue)) {
+                            continue
+                        }
+
+                        val oldSize = follow[currentValue]!!.size
+
+                        var followingValue: String
+                        var hasOnlyEps = true
+                        for (j in (i + 1) until rule.size) {
+                            followingValue = rule[j].first
+
+                            if (terminals.contains(followingValue)) {
+                                hasOnlyEps = false
+                                follow[currentValue]!!.add(followingValue)
+                                break
+                            }
+
+                            follow[currentValue]!!.addAll(first[followingValue]!!.filter { it !== eps })
+
+                            if (!first[followingValue]!!.contains(eps)) {
+                                hasOnlyEps = false
+                                break
+                            }
+                        }
+
+                        if (hasOnlyEps) {
+                            follow[currentValue]!!.addAll(follow[key]!!)
+                        }
+
+                        changed = follow[currentValue]!!.size != oldSize || changed
+                    }
+                }
             }
         }
     }

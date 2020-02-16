@@ -1,6 +1,6 @@
 import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream
-import java.util.*
+import java.io.StringReader
 
 fun main() {
     val option = readLine().toString()
@@ -18,41 +18,38 @@ fun main() {
         }
     }
 
+    val visitor = parseGrammar(dir, name)
+    val ffBuilder = buildFF(visitor)
+    createLexer(visitor, dir)
+    createParser(visitor, ffBuilder, dir)
+}
+
+fun parseGrammar(dir: String, name: String): GrammarVisitorImpl {
     val cs = CharStreams.fromFileName("src/test/$dir/$name")
     val lexer = GrammarLexer(cs)
     val parser = GrammarParser(CommonTokenStream(lexer))
     val visitor = GrammarVisitorImpl()
     val grammar = parser.grammar_()
     visitor.visit(grammar)
+
+    return visitor
+}
+
+fun buildFF(visitor: GrammarVisitorImpl): FirstFollowBuilder {
     val ffBuilder = FirstFollowBuilder(visitor.rules, visitor.tokens.keys)
     ffBuilder.buildFirst()
     ffBuilder.buildFollow()
     ffBuilder.buildMapToRule()
+
+    return ffBuilder
+}
+
+fun createLexer(visitor: GrammarVisitorImpl, dir: String) {
     val lexerGenerator = LexerGenerator(visitor)
-    val parserGenerator = ParserGenerator(visitor, ffBuilder)
     lexerGenerator.createLexer(dir)
+}
+
+fun createParser(visitor: GrammarVisitorImpl, ffBuilder: FirstFollowBuilder, dir: String) {
+    val parserGenerator = ParserGenerator(visitor, ffBuilder)
     parserGenerator.createParser(dir)
-
-}
-
-fun printFirst(first: HashMap<String, HashSet<String>>) {
-    first.forEach{(name, map) ->
-        print("$name: ")
-        map.forEach{ print("$it ") }
-        println()
-    }
-
-}
-
-fun printRules(rules: HashMap<String, ArrayList<ArrayList<Triple<String, String, String>>>>) {
-    rules.forEach {(name, list) ->
-        print("$name: ")
-        list.forEach {
-            it.forEach {(name, _, _) -> print("$name ")
-            }
-            print("| ")
-        }
-        println()
-    }
-
 }

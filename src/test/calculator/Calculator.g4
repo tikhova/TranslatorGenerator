@@ -7,7 +7,7 @@ var value: Int? = null;
 expression : complex expressionPrime <it.value = res.children[0].value> {res.value = children[1].value!!};
 expressionPrime : EPS  |
                   PLUS complex expressionPrime  <it.value = res.value!! + children[1].value!!> {res.value = children[2].value!!} |
-                  MINUS complex expressionPrime <it.value = res.value!! - children[1].value!!> {res.value = children[2].value!!}} ;
+                  MINUS complex expressionPrime <it.value = res.value!! - children[1].value!!> {res.value = children[2].value!!} ;
 
 complex : value complexPrime <it.value = res.children[0].value!!> {res.value = children[1].value!!};
 

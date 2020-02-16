@@ -11,7 +11,8 @@ class Lexer(private val inputReader: Reader) {
     private var curCharacter: Int? = null
     private var curString = ""
     private var curToken: Token? = null
-    private val skipSet = " \t\n".toSet()
+    private val skipSet = " \t\r\n".toSet()
+    var realString = ""
     private val tokenMap: Map<Token, Regex> = mapOf(
         Token.NOT to Regex("(not)"),
         Token.OR to Regex("(or)"),
@@ -72,11 +73,20 @@ class Lexer(private val inputReader: Reader) {
     }
 
     fun nextToken() {
-        curString = curString().takeLast(1)
+        if (isEOF()) {
+            curString = ""
+        } else {
+            curString = curString.takeLast(1)
+        }
         var options = getTokenFromString()
         val lastPosition = curPosition
 
-        while (!isEOF() && options.isNotEmpty()) {
+        while (!isEOF() && options.filter{ it.key != Token.EPS }.isEmpty()) {
+            nextChar()
+            options = getTokenFromString()
+        }
+
+        while (!isEOF() && options.filter{ it.key != Token.EPS }.isNotEmpty()) {
             nextChar()
             options = getTokenFromString()
         }
@@ -88,6 +98,12 @@ class Lexer(private val inputReader: Reader) {
                 throw ParseException("Illegal character ${curString}", lastPosition)
             }
         }
+        
+        realString = if (isEOF()) {
+                    curString
+                } else {
+                    curString.dropLast(1)
+                }
     }
 
     fun curToken(): Token? {
@@ -98,8 +114,8 @@ class Lexer(private val inputReader: Reader) {
         return curPosition
     }
     
-    fun curString(): String {
-        return curString
+    fun getString(): String {
+        return realString
     }
 
     fun parse(): ArrayList<Token> {

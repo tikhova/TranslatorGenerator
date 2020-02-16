@@ -6,7 +6,8 @@ class Parser(private val lexer: Lexer) {
     init {
         lexer.nextToken()
     }
-    
+
+    // TODO
     private fun unexpectedLiteral(): Nothing = throw ParseException(
         "Unexpected literal ${lexer.getString()}", lexer.curPos()
     )
@@ -254,7 +255,7 @@ class Parser(private val lexer: Lexer) {
                 return res
             }
 
-            Lexer.Token.EPS, Lexer.Token.PLUS, Lexer.Token.MINUS -> {
+            Lexer.Token.RBRACE, Lexer.Token.EPS, Lexer.Token.PLUS, Lexer.Token.MINUS -> {
                 return res
             }
 
