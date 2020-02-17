@@ -75,7 +75,8 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.LBRACE) {
                     unexpectedLiteral()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("LBRACE")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
@@ -87,7 +88,8 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.RBRACE) {
                     unexpectedLiteral()
                 }
-                val node2 = Node(lexer.getString())
+                val node2 = Node("LBRACE")
+                node2.text = lexer.getString()
                 children.add(node2)
                 res.value = res.children[1].value
                 lexer.nextToken()
@@ -100,9 +102,10 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.ATOM) {
                     unexpectedLiteral()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("ATOM")
+                node0.text = lexer.getString()
                 children.add(node0)
-                res.value = res.children[0].name.toBoolean()
+                res.value = res.children[0].text.toBoolean()
                 lexer.nextToken()
 
                 return res
@@ -126,14 +129,19 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.OR) {
                     unexpectedLiteral()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("OR")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
 
-                val node1 = expression{}
+                val node1 = x_value{}
                 children.add(node1)
                 res.value = res.value || children[1].value
+
+                val node2 = x_or_continuation{it.value = res.value}
+                children.add(node2)
+                res.value = res.children[2].value
 
                 return res
             }
@@ -143,14 +151,19 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.XOR) {
                     unexpectedLiteral()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("XOR")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
 
-                val node1 = expression{}
+                val node1 = x_value{}
                 children.add(node1)
                 res.value = res.value xor children[1].value
+
+                val node2 = x_or_continuation{it.value = res.value}
+                children.add(node2)
+                res.value = res.children[2].value
 
                 return res
             }
@@ -229,7 +242,8 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.NOT) {
                     unexpectedLiteral()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("NOT")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
@@ -277,14 +291,19 @@ class Parser(private val lexer: Lexer) {
                 if (lexer.curToken() != Lexer.Token.AND) {
                     unexpectedLiteral()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("AND")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
 
-                val node1 = x_value{}
+                val node1 = and_value{}
                 children.add(node1)
                 res.value = res.value && children[1].value
+
+                val node2 = and_continuation{it.value = res.value}
+                children.add(node2)
+                res.value = res.children[2].value
 
                 return res
             }

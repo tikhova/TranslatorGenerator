@@ -41,27 +41,23 @@ import java.util.*
 class Lexer(private val inputReader: Reader) {
     private var curPosition = 0
     private var curCharacter: Int? = null
+    private var curBuilder = StringBuilder()
     private var curString = ""
     private var curToken: Token? = null
     private val skipSet = "${visitor.skipString.toString()}".toSet()
-    var realString = ""
     ${generateTokenMap()}
     
     ${generateToken()}
+    
+    
+    init {
+        nextChar()
+    }
     
     private fun nextChar() {
         try {
             curPosition++
             curCharacter = inputReader.read()
-
-            if (isBlank(curCharacter)) {
-                nextChar()
-                return
-            }
-
-            if (!isEOF()) {
-                curString = curString.plus(curCharacter!!.toChar())
-            }
         } catch (err: IOException) {
             throw ParseException(err.message, curPosition)
         }
@@ -77,8 +73,9 @@ class Lexer(private val inputReader: Reader) {
 
     private fun getTokenFromString(): Map<Token, Regex> {
         return tokenMap.filter { (name, regex) ->
-            if (curString.matches(regex)) {
+            if (curBuilder.matches(regex)) {
                 curToken = name
+                curString = curBuilder.toString()
                 true
             } else {
                 false
@@ -86,38 +83,45 @@ class Lexer(private val inputReader: Reader) {
         }
     }
 
+    fun findToken(): Boolean {
+        val length = curBuilder.length
+        val newCurBuilder = StringBuilder()
+
+        while (getTokenFromString().size != 1 && curBuilder.isNotEmpty()) {
+            newCurBuilder.append(curBuilder.lastOrNull())
+            curBuilder.deleteCharAt(curBuilder.lastIndex)
+        }
+
+        curBuilder = newCurBuilder.reverse()
+
+        return newCurBuilder.length != length
+    }
+
     fun nextToken() {
-        if (isEOF()) {
-            curString = ""
-        } else {
-            curString = curString.takeLast(1)
-        }
-        var options = getTokenFromString()
-        val lastPosition = curPosition
-
-        while (!isEOF() && options.filter{ it.key != Token.EPS }.isEmpty()) {
-            nextChar()
-            options = getTokenFromString()
-        }
-
-        while (!isEOF() && options.filter{ it.key != Token.EPS }.isNotEmpty()) {
-            nextChar()
-            options = getTokenFromString()
-        }
-
-        if (isEOF() && options.size != 1) {
-            curToken = null
-
-            if (curString.isNotEmpty()) {
-                throw ParseException("Illegal character ${'$'}{curString}", lastPosition)
+        if (curBuilder.isNotEmpty()) {
+            if (!findToken()) {
+                throw ParseException("Can't parse token ${'$'}{getString()}", curPosition)
             }
+            return
         }
-        
-        realString = if (isEOF()) {
-                    curString
-                } else {
-                    curString.dropLast(1)
-                }
+
+        while (isBlank(curCharacter)) {
+            nextChar()
+        }
+
+        if (isEOF()) {
+            curToken = Token.EPS
+            return
+        }
+
+        while (!isBlank(curCharacter) && !isEOF()) {
+            curBuilder.append(curCharacter!!.toChar())
+            nextChar()
+        }
+
+        if (!findToken()) {
+            throw ParseException("Can't parse token ${'$'}{getString()}", curPosition)
+        }
     }
 
     fun curToken(): Token? {
@@ -129,7 +133,7 @@ class Lexer(private val inputReader: Reader) {
     }
     
     fun getString(): String {
-        return realString
+        return curString
     }
 
     fun parse(): ArrayList<Token> {

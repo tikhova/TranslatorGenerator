@@ -81,7 +81,12 @@ class Lexer(private val inputReader: Reader) {
         var options = getTokenFromString()
         val lastPosition = curPosition
 
-        while (!isEOF() && options.isNotEmpty()) {
+        while (!isEOF() && options.filter{ it.key != Token.EPS }.isEmpty()) {
+            nextChar()
+            options = getTokenFromString()
+        }
+
+        while (!isEOF() && options.filter{ it.key != Token.EPS }.isNotEmpty()) {
             nextChar()
             options = getTokenFromString()
         }

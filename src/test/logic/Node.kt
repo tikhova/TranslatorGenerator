@@ -1,6 +1,6 @@
 package logic
             
-data class Node(val name: String, val children: List<Node> = arrayListOf()) {
+data class Node(val name: String, val children: List<Node> = arrayListOf(), var text: String = "") {
     
 var value = false
 
@@ -14,24 +14,14 @@ var value = false
     fun getExpressionString(): String {
         val str = StringBuilder()
         if (children.isNotEmpty()) {
-            for (i in children.indices) {
-                val strAppend = children[i].getExpressionString()
-
-                str.append(strAppend)
-                if (strAppend.isNotEmpty()){
-                    if (i != children.size - 1) {
-                        str.append(" ")
-                    }
-                }
-            }
+            str.append(children.map{it.getExpressionString()}.joinToString(" "))
         } else {
-            if (name != "EPS")
-                str.append(name)
+            str.append(text)                
         }
 
         return str.toString().trim()
     }
-
+    
     fun printTree(tabulation: String = "") {
         if (children.isEmpty() && name != "EPS") {
             print("$tabulation[$name]")

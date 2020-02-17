@@ -6,17 +6,10 @@ class Parser(private val lexer: Lexer) {
     init {
         lexer.nextToken()
     }
-
-    // TODO
+    
     private fun unexpectedLiteral(): Nothing = throw ParseException(
         "Unexpected literal ${lexer.getString()}", lexer.curPos()
     )
-    
-    private fun ensureTokenIsCorrect(token: Lexer.Token, rule: String) {
-        if (lexer.curToken() != token) {
-            unexpectedLiteral()
-        }
-    }
     
     
     fun expressionPrime(func: (Node) -> Unit): Node {

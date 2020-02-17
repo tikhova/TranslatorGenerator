@@ -8,7 +8,7 @@ class ParserGenerator(private val visitor: GrammarVisitorImpl,
         return """
 package $path
             
-data class Node(val name: String, val children: List<Node> = arrayListOf()) {
+data class Node(val name: String, val children: List<Node> = arrayListOf(), var text: String = "") {
     ${visitor.attributes}
 
     private fun getChildren(name: String): List<Node> {
@@ -20,24 +20,14 @@ data class Node(val name: String, val children: List<Node> = arrayListOf()) {
     fun getExpressionString(): String {
         val str = StringBuilder()
         if (children.isNotEmpty()) {
-            for (i in children.indices) {
-                val strAppend = children[i].getExpressionString()
-
-                str.append(strAppend)
-                if (strAppend.isNotEmpty()){
-                    if (i != children.size - 1) {
-                        str.append(" ")
-                    }
-                }
-            }
+            str.append(children.map{it.getExpressionString()}.joinToString(" "))
         } else {
-            if (name != "EPS")
-                str.append(name)
+            str.append(text)                
         }
 
         return str.toString().trim()
     }
-
+    
     fun printTree(tabulation: String = "") {
         if (children.isEmpty() && name != "EPS") {
             print("${'$'}tabulation[${'$'}name]")
@@ -99,7 +89,8 @@ class Parser(private val lexer: Lexer) {
 ${singleIndentation.repeat(4)}if (lexer.curToken() != Lexer.Token.${rulePart.first}) {
 ${singleIndentation.repeat(5)}unexpectedLiteral()
 ${singleIndentation.repeat(4)}}
-${singleIndentation.repeat(4)}val node$nodeCounter = Node(lexer.getString())""")
+${singleIndentation.repeat(4)}val node$nodeCounter = Node("$fst")
+${singleIndentation.repeat(4)}node$nodeCounter.text = lexer.getString()""")
                         if (rulePart.third.isNotEmpty()) {
                             sb.append("${singleIndentation.repeat(5)}node$nodeCounter.apply(${rulePart.third})\n")
                         }
@@ -123,8 +114,6 @@ ${singleIndentation.repeat(4)}return res
 ${singleIndentation.repeat(3)}}
 """)
             }
-            println("FIRST: $name -> ${firstFollowBuilder.first[name]!!.toString()}")
-            println("FOLLOW: $name -> ${firstFollowBuilder.follow[name]!!.toString()}")
             if (firstFollowBuilder.first[name]!!.contains("EPS") && firstFollowBuilder.follow[name]!!.isNotEmpty()) {
                 val follow = firstFollowBuilder.follow[name]!!
                 follow.add("EPS")
