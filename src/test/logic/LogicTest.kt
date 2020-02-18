@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 import java.io.StringReader
 import java.lang.AssertionError
 
-class ParserTest {
+class LogicTest {
     private fun parseExpression(str: String): Node {
         val lexer = Lexer(StringReader(str))
         val parser = Parser(lexer)

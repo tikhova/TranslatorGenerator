@@ -1,6 +1,5 @@
 import java.util.*
 
-// TODO: decide what to do with eps
 val eps = "EPS"
 
 class FirstFollowBuilder(

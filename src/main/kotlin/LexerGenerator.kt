@@ -6,7 +6,9 @@ class LexerGenerator(private val visitor: GrammarVisitorImpl) {
         val sb = StringBuilder()
         sb.append("enum class Token {\n")
         val tokens = arrayListOf<String>()
-        for (token in visitor.tokens.keys) {
+        val keys = visitor.tokens.keys
+        keys.plus("EPS")
+        for (token in keys) {
             tokens.add("${singleIndentation.repeat(2)}$token")
         }
         sb.append(tokens.joinToString(",\n"))

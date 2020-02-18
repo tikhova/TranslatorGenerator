@@ -15,7 +15,7 @@ complexPrime: EPS |
               MULTIPLICATION value complexPrime <it.value = res.value!! * children[1].value!!> {res.value = children[2].value!!} |
               DIVISION value complexPrime <it.value = res.value!! / children[1].value!!> {res.value = children[2].value!!} ;
 
-value : NUMBER {res.value = children[0].name.toInt()} |
+value : NUMBER {res.value = children[0].text.toInt()} |
         LBRACE expression RBRACE { res.value = children[1].value!! } ;
 
 DIVISION: '/' ;

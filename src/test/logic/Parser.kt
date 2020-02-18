@@ -7,8 +7,8 @@ class Parser(private val lexer: Lexer) {
         lexer.nextToken()
     }
     
-    private fun unexpectedLiteral(): Nothing = throw ParseException(
-        "Unexpected literal ${lexer.getString()}", lexer.curPos()
+    private fun unexpectedToken(): Nothing = throw ParseException(
+        "Unexpected token ${lexer.getString()}", lexer.curPos()
     )
     
     
@@ -58,7 +58,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }
@@ -73,7 +73,7 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.LBRACE -> {
 
                 if (lexer.curToken() != Lexer.Token.LBRACE) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
                 val node0 = Node("LBRACE")
                 node0.text = lexer.getString()
@@ -86,7 +86,7 @@ class Parser(private val lexer: Lexer) {
                 
 
                 if (lexer.curToken() != Lexer.Token.RBRACE) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
                 val node2 = Node("LBRACE")
                 node2.text = lexer.getString()
@@ -100,7 +100,7 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.ATOM -> {
 
                 if (lexer.curToken() != Lexer.Token.ATOM) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
                 val node0 = Node("ATOM")
                 node0.text = lexer.getString()
@@ -112,7 +112,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }
@@ -127,7 +127,7 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.OR -> {
 
                 if (lexer.curToken() != Lexer.Token.OR) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
                 val node0 = Node("OR")
                 node0.text = lexer.getString()
@@ -149,7 +149,7 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.XOR -> {
 
                 if (lexer.curToken() != Lexer.Token.XOR) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
                 val node0 = Node("XOR")
                 node0.text = lexer.getString()
@@ -173,7 +173,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }
@@ -225,7 +225,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }
@@ -240,7 +240,7 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.NOT -> {
 
                 if (lexer.curToken() != Lexer.Token.NOT) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
                 val node0 = Node("NOT")
                 node0.text = lexer.getString()
@@ -274,7 +274,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }
@@ -289,7 +289,7 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.AND -> {
 
                 if (lexer.curToken() != Lexer.Token.AND) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
                 val node0 = Node("AND")
                 node0.text = lexer.getString()
@@ -313,7 +313,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }

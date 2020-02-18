@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98f5c1ba-32f6-4da6-a4c5-7768f42c7b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/logic/ParserTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TranslatorGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TranslatorGenerator.iml" afterDir="false" />
+    <list default="true" id="98f5c1ba-32f6-4da6-a4c5-7768f42c7b4a" name="Default Changelist" comment="wip: passes all tests for logic">
+      <change afterPath="$PROJECT_DIR$/src/test/calculator/CalculatorTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/FirstFollowBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/FirstFollowBuilder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/GrammarVisitorImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/LexerGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/LexerGenerator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ParserGenerator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/calculator/Calculator.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/calculator/Calculator.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/calculator/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/calculator/Lexer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/calculator/Node.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/calculator/Node.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/calculator/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/calculator/Parser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/logic/Lexer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Lexer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/logic/Logic.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Logic.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/logic/Node.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Node.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/logic/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/Parser.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/logic/ParserTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/logic/LogicTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FirstFollowBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FirstFollowBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FirstFollowBuilderKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FirstFollowBuilderKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GrammarVisitorImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GrammarVisitorImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/LexerGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LexerGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ParserGenerator$getNodeFunctions$followList$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ParserGenerator$getNodeFunctions$followList$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MainKt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ParserGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ParserGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ParserTest$parseExpression$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ParserTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/calculator/Lexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/calculator/Lexer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/calculator/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/calculator/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/calculator/Parser$complex$node0$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/calculator/Parser$complex$node0$1.class" afterDir="false" />
@@ -42,21 +43,6 @@
       <change beforePath="$PROJECT_DIR$/target/test-classes/calculator/Parser$expressionPrime$node2$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/calculator/Parser$expressionPrime$node2$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/calculator/Parser$value$node1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/calculator/Parser$value$node1$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/calculator/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/calculator/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Lexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Lexer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_continuation$node1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_continuation$node1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node0$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$and_value$node1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$value$node1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$value$node1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_or_continuation$node1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node0$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node1$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser$x_value$node1$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/logic/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/logic/Parser.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,6 +98,9 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="calculator" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/calculator" />
     </key>
@@ -120,7 +109,25 @@
       <recent name="$PROJECT_DIR$/src/main/kotlin" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ParserTest">
+  <component name="RunManager" selected="JUnit.CalculatorTest">
+    <configuration name="CalculatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TranslatorGenerator" />
+      <option name="PACKAGE_NAME" value="calculator" />
+      <option name="MAIN_CLASS_NAME" value="CalculatorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LogicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TranslatorGenerator" />
+      <option name="PACKAGE_NAME" value="logic" />
+      <option name="MAIN_CLASS_NAME" value="LogicTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TranslatorGenerator" />
       <option name="PACKAGE_NAME" value="logic" />
@@ -143,19 +150,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="calculator.MainKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
-      <module name="TranslatorGenerator" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="calculator.MainKt" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="logic.MainKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="TranslatorGenerator" />
       <option name="VM_PARAMETERS" />
@@ -171,10 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ParserTest" />
+        <item itemvalue="JUnit.CalculatorTest" />
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="JUnit.LogicTest" />
+        <item itemvalue="JUnit.ParserTest" />
         <item itemvalue="Kotlin.logic.MainKt" />
-        <item itemvalue="Kotlin.calculator.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +187,7 @@
       <workItem from="1581275980895" duration="30452000" />
       <workItem from="1581520861510" duration="29937000" />
       <workItem from="1581708143085" duration="11928000" />
-      <workItem from="1581802320367" duration="30377000" />
+      <workItem from="1581802320367" duration="33441000" />
     </task>
     <servers />
   </component>
@@ -201,6 +196,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="wip: passes all tests for logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip: passes all tests for logic" />
   </component>
   <component name="WindowStateProjectService">
     <state x="100" y="100" width="1720" height="844" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1581964869672">
@@ -227,22 +224,22 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="743" y="278" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1581523364517" />
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1581974452600">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom" timestamp="1582012098496">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1581974452600" />
-    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1581974452599">
+    <state width="1874" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1582012098496" />
+    <state width="1874" height="275" key="GridCell.Tab.0.center" timestamp="1582012098495">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1581974452599" />
-    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1581974452599">
+    <state width="1874" height="275" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1582012098495" />
+    <state width="1874" height="275" key="GridCell.Tab.0.left" timestamp="1582012098495">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1581974452599" />
-    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1581974452600">
+    <state width="1874" height="275" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1582012098495" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right" timestamp="1582012098495">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1581974452600" />
+    <state width="1874" height="275" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1582012098495" />
     <state width="1874" height="340" key="GridCell.Tab.1.bottom" timestamp="1581974424472">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -279,69 +276,14 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="624" y="238" key="run.anything.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1581427576548" />
+    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1582011945281">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1582011945281" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/calculator/Parser.kt</url>
-          <line>171</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/calculator/Parser.kt</url>
-          <line>120</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/calculator/Parser.kt</url>
-          <line>128</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/calculator/Parser.kt</url>
-          <line>175</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/calculator/Parser.kt</url>
-          <line>125</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/calculator/Parser.kt</url>
-          <line>168</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/calculator/Parser.kt</url>
-          <line>184</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/calculator/Parser.kt</url>
-          <line>145</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/logic/ParserTest.kt</url>
-          <line>49</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/test/logic/ParserTest.kt</url>
-          <line>130</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/test/logic/Parser.kt</url>
           <line>71</line>

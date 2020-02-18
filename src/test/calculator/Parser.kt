@@ -7,8 +7,8 @@ class Parser(private val lexer: Lexer) {
         lexer.nextToken()
     }
     
-    private fun unexpectedLiteral(): Nothing = throw ParseException(
-        "Unexpected literal ${lexer.getString()}", lexer.curPos()
+    private fun unexpectedToken(): Nothing = throw ParseException(
+        "Unexpected token ${lexer.getString()}", lexer.curPos()
     )
     
     
@@ -21,9 +21,10 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.PLUS -> {
 
                 if (lexer.curToken() != Lexer.Token.PLUS) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("PLUS")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
@@ -42,9 +43,10 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.MINUS -> {
 
                 if (lexer.curToken() != Lexer.Token.MINUS) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("MINUS")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
@@ -65,7 +67,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }
@@ -104,7 +106,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }
@@ -119,11 +121,12 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.NUMBER -> {
 
                 if (lexer.curToken() != Lexer.Token.NUMBER) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("NUMBER")
+                node0.text = lexer.getString()
                 children.add(node0)
-                res.value = children[0].name.toInt()
+                res.value = children[0].text.toInt()
                 lexer.nextToken()
 
                 return res
@@ -132,9 +135,10 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.LBRACE -> {
 
                 if (lexer.curToken() != Lexer.Token.LBRACE) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("LBRACE")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
@@ -144,9 +148,10 @@ class Parser(private val lexer: Lexer) {
                 
 
                 if (lexer.curToken() != Lexer.Token.RBRACE) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
-                val node2 = Node(lexer.getString())
+                val node2 = Node("LBRACE")
+                node2.text = lexer.getString()
                 children.add(node2)
                  res.value = children[1].value!! 
                 lexer.nextToken()
@@ -155,7 +160,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }
@@ -194,7 +199,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }
@@ -209,9 +214,10 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.MULTIPLICATION -> {
 
                 if (lexer.curToken() != Lexer.Token.MULTIPLICATION) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("MULTIPLICATION")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
@@ -230,9 +236,10 @@ class Parser(private val lexer: Lexer) {
             Lexer.Token.DIVISION -> {
 
                 if (lexer.curToken() != Lexer.Token.DIVISION) {
-                    unexpectedLiteral()
+                    unexpectedToken()
                 }
-                val node0 = Node(lexer.getString())
+                val node0 = Node("DIVISION")
+                node0.text = lexer.getString()
                 children.add(node0)
                 
                 lexer.nextToken()
@@ -253,7 +260,7 @@ class Parser(private val lexer: Lexer) {
             }
 
             else -> {
-                unexpectedLiteral()
+                unexpectedToken()
             }
         }
     }

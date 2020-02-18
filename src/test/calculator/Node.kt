@@ -1,6 +1,6 @@
 package calculator
             
-data class Node(val name: String, val children: List<Node> = arrayListOf()) {
+data class Node(val name: String, val children: List<Node> = arrayListOf(), var text: String = "") {
     
 var value: Int? = null
 
@@ -17,8 +17,7 @@ var value: Int? = null
         if (children.isNotEmpty()) {
             str.append(children.map{it.getExpressionString()}.joinToString(" "))
         } else {
-            if (name != "EPS")
-                str.append(name)
+            str.append(text)                
         }
 
         return str.toString().trim()

@@ -58,8 +58,8 @@ class Parser(private val lexer: Lexer) {
         lexer.nextToken()
     }
     
-    private fun unexpectedLiteral(): Nothing = throw ParseException(
-        "Unexpected literal ${'$'}{lexer.getString()}", lexer.curPos()
+    private fun unexpectedToken(): Nothing = throw ParseException(
+        "Unexpected token ${'$'}{lexer.getString()}", lexer.curPos()
     )
     
     ${getNodeFunctions()}
@@ -87,7 +87,7 @@ class Parser(private val lexer: Lexer) {
                     if (rulePart.first in visitor.tokens.keys) {
                         sb.append("""
 ${singleIndentation.repeat(4)}if (lexer.curToken() != Lexer.Token.${rulePart.first}) {
-${singleIndentation.repeat(5)}unexpectedLiteral()
+${singleIndentation.repeat(5)}unexpectedToken()
 ${singleIndentation.repeat(4)}}
 ${singleIndentation.repeat(4)}val node$nodeCounter = Node("$fst")
 ${singleIndentation.repeat(4)}node$nodeCounter.text = lexer.getString()""")
@@ -126,7 +126,7 @@ ${singleIndentation.repeat(3)}}
             }
             sb.append("""
 ${singleIndentation.repeat(3)}else -> {
-${singleIndentation.repeat(4)}unexpectedLiteral()
+${singleIndentation.repeat(4)}unexpectedToken()
 ${singleIndentation.repeat(3)}}
 ${singleIndentation.repeat(2)}}
 $singleIndentation}

@@ -1,5 +1,4 @@
 import GrammarParser.*
-import java.io.OutputStreamWriter
 import java.util.*
 
 class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
@@ -33,7 +32,6 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
 
     override fun visitParsingRule(ctx: ParsingRuleContext): Void? {
         val name = ctx.PARSER_IDENTIFIER().toString()
-        println(name)
 
         nodes.plus(name)
         rules.putIfAbsent(name, arrayListOf())
@@ -75,7 +73,6 @@ class GrammarVisitorImpl : GrammarBaseVisitor<Void?>() {
     }
 
     override fun visitLexingRule(ctx: LexingRuleContext): Void? {
-        println("lexing rule")
         val name = ctx.LEXER_IDENTIFIER().text
         val value = getLexingRuleOptions(ctx.lexingRuleOptions())
         if (tokens[name] != null) {
